@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#0F1218">
+<link rel="manifest" href="./manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Trénink">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAALA0lEQVR42u3dSYwc1QGH8e+9quru2TzjsWewDRgw+yo5JgGUoBCFg2UQm1ACCmK5EEWAolxySHLikEOiCAnllAvJKSgyjmQBZjkEJIgEsUIWImHHJpbxGAbb2OPpveq9l0MNiITxuD2ebqZr/j+pL9CyNO/1V13Lq2ozOr4uILJCWQ2BKAARBSCiAEQUgIgCEFEAIgpARAGIKAARBSCiAEQUgIgCEFEAIgpARAGIKAARBSCiAEQUgIgCEFEAIgpARAGIKAARBSCiAEQUgIgCEFEAIgpARAGIKAARBSCiAEQUgIgCEFEAIgpARAGIKAARBSCiAEQUgIgCEFEAIvOLi/hHmTN4b1jhH4CVPlaFCsAasMbQdgEfOpuucmQAgwsrKwWNVcECiAzU0kArc0wOxZRje9pNlgEOVTM8MFayGAN+BXSgsSpQAAYwBk60PFvOqfDQ1aNsvWCItZUIfP7/TsUDrx9u8Nzek2z/9yzGQCUyuIJGoLGaZ0xGx9eFfp5QgJm241c3n8NjW8YplSykPt88mQ72cBMLIfD2VJ37np9iqpoxXLKFi0BjVcAArIHZluepb07y+I1rCQ2H8wFrTEfzCeB9IADxYMx700227TjIdN1Rjk2hdoc0VqcYl77dd7OG4w3Hz762hsdvmqBdyz7779bMfd138IqsIbaGtJ5xxWSF5+88n9iCC2d2hkRjpQB6+nXezDybxkr88CvjuKYjNuasJiGxhrSRcdWGAR68aozZliOy/Z+AxqqAAUTWUEs9d2waZmxVQsg8SzH+1hiCCzxwxSqSyHR8elBj1b9j1ZcBhBCIrOH2TcMEHzBmabY+kQGTerZMlrlyvEwjDfT7l4DGqqDHAJBfmOnGmMfWEJtiXfnUWBUwgG5+6xbtUoDGqoABiCgAkX4KwJp8v/F0zNz7jOaor0UGog4OvDt935Ifw/R6MKppoJ05RspRfgUyfHF/0hhozi3WGilHxHZlLFIrks+vOwoBRsqWMM8Fs0/ne6blcQHGKvnCvFC0ACILJ5qe68+p8J3LRth2wTClyOQD8Ln3+RAwkeXAyTY791f5w56TnGx7BhKLUwX98eGf27BV257bLxrmzktHuHnDAGaeBXc+BIgMu6eb7Nw3y879VWJriHq00etJALE1HKtlPHz1KL/ZuoGkZCHzC55WuGS8xK2XjvDodWPcseMDpuqO4aS4KzWLtOWHfMv/9C2TPHHD2vwUVLbAeokAl64pc/+1Y2z/5wm+t+swldhibXfPXvXkGCAyhmONjIevGeWZ284lDoG0nuHTcOpXFvBtTzqbcc3kALvu3cj6wYhG1v8XplbC1v9ky/PrWyZ54sa1ZI2MrOHyOV1gvl3TkdYy7r12jGe3nUvL+3l3mfoqgMgYqm3H3ZeM8My2c/GpB5+vJcnvSFr4lUSGrJlx+USZV+45n5GSXfCLQ77sA17DTMvz869P8NhNE6S1jNiYzxbdLfSKrMnXGFUz7r52lGduXU8j9XT7uLirAQTy5bM//eoaMPly2jP9g/LVh47L1g9w/+UjzLZcR2eRpPdb/oYLbByJ+dHm1fhGtqh5iiNDWnPcf/UYmycrVLu8xKJrAVgD9TSweaLClRMVfNsvesWgtQafBe6+eISB2OJC0OnRZcYaaKSebRcOU6pEBLe4OTKACQGs4a6Lh0kzj+3i10DXAjBA2wc2DMcMnuIU2Jn8WzYELlpVolSwG1WKdPDrQ2DTaEKw5uxPYxq4ZLTU/XC7PSipD0t2JN92gaAP/7LWdkv37dzqwSk/24stw1INiNF+T18cC9BH8621QLKyj100BKIARBSAiAIQUQAiCkBEAYgoABEFIKIARBSAiAIQKYRYQ3CKgZl7Fn5s+/v+g0jPV1IAi3G04ajVM2pJnz8lN78zibbuIlIAHQvw4y3jHGm4/Gex+vzz33KBi0cTcLqVVAF06PvXjxfrDpy2B6fHyiiADmUNV6i/J9JxgAI404NgKT6dBhUFIKIARBSAiAIQUQAiCkBEAYgoAJFC0pXgUyja4kld2FYAZ/aBiQ2FWjzjQn8va1UAvXXwRJuWC139dZLefZsFzhtOGOj3exsUQI8YuOv5Kf51tM1g0v93hM20Pa/du5GbLxzCtTyRdocUQAcNYMzcq5//DqMfFllwV1dDIApARAGIKAARBSCiAEQUgIgCEFEAIgpARAGIKAARBSCiAEQUgIgCmNdSLkXXuvblbynnqBfzbbv94U99wIWluaWq7YLu6Fvm2i6wFNMd5v6tvg3ABRgqWd6ebjF1PIV48bcWeh8gtuw6UGW25UisUQjLjAtQji0vHqhhUn+W91IbTAjsfL+KtYYQQv8FAPmPTJxoZjy7d4aoEuEWUUAIEMUGUs/v985SiS1On/5lJwQYii3vHGny5lQdOxiRLmK+nQ/EFcv+oy1eO1RnuNTd+e5qAN4HRsoRT751jD/+4wTJcEzbhY6+CcLcYHgDJrY88tJh/jrdZDDp7hZBzma7HYiM4cGXP2TPdJOkEpF2uNsa5naXo5LlSDXjuy9MUU9D12/g72oAYe5AxhrDfS9O8dy7M5RWJdi53SE3z8uH/DEeBogqEVFieeSFKX777gyjZW39lzMPVCLDB9WUrdsP8t6RFslIjDFmbl5PNd/55yQZjPm47ti6/SDvHGkxmNiuP5Gj60+FCPnuO8SWh146zN4Tbe67bISLVpfyx5WF+Y+emy3H7kN1nvrLMXbsm2XNUEym37rti2OBVaWIw3XHbTsO8uQ3Jvn2+YOsG0kWPFtytJrxxn9qPPnnI/z9aIvxyuJ2oZZdAJAXHtn8m+Anb3zML3cf44Z1A/kP0f3f7kwAjDVM1zL+9nETD4xXIn34+0jmA8OJ4aOG44EXp9i4KuG6iQrBf/F3ij+d7z2ftNl3vEU5toxVItq+N79p3LPnAoWQnxYdH8i35K8erC14uiyxhuGSxcxtVaT/vglKkaESx3zScLz4fnXB91diw+pKTCDgfO9+0LunD8b69MDWAqMle9r3aqPf/2eGXAjE1jBWNqc9fnBfwsmNL+XJcEFb9ZUVwjKeb60FkhWtrwPo1jdmoHgPUdZYFTCAUpeukhgDccGeJK6xKlAAxhicD7z1UQOWcK2IB4gMB2ZSDsxmVCJDv1901lgVMIAQ8tOkO/bP4lK/ZOtmvQ+QWHYdqHGklpFE/b/oTmNVwABcCIyUIt44VOfV/VXiwZj0LE8z+ABRbEmbjqffOc5AYvEFWHOksSroMYAnMJBYHnttmj0fNUgG5hZeneE8BPIrl9j8iuSjr3zIvpk2A7EpzHUIjdUCu4ij4+v6dpojA9U0sH4o4uV7NnL5+go0Pd6FjrdIcWQgseDh4V1T/O7dGcaH4kUt3dZYKYCei62hmnrWliN+sHk1D105ynmjcb74KLDwPZkBao2MPx2s84vdx3jzcIPVZUtW0It0GqsCBgD5otK2D9TanonBmG+dN8j4YARu4WO+ALw+VWfvJ22MgVWl4i+31lgVMADmNl7WGlIXqKae4ENHd+QPxJZKbFbUojuNVQED+J/JNfn5707PkqzUG8w0VgX8mdTPFl7ptkmNVSe7hPoYyEqmAEQBiCgAEQUgogBEFICIAhBRACIKQEQBiCgAEQUgogBEFICIAhBRACIKQEQBiCgAEQUgogBEFICIAhBRACIKQEQBiCgAEQUgogBEFICIAhBRACIKQEQBiCgAEQUgogBEFICIAhBRACIKQEQBiCgAEQUgogBEFIDIQv4LqjYgWP89pGYAAAAASUVORK5CYII=">
+<title>Trénink</title>
+<style>
+  :root{
+    --bg:#0F1218;
+    --surface:#181D26;
+    --elevated:#222937;
+    --line:#2B3342;
+    --text:#EEF1F6;
+    --muted:#8B93A5;
+    --accent:#FF7A3D;
+    --accent-soft:rgba(255,122,61,.14);
+    --done:#3DDC97;
+    --done-soft:rgba(61,220,151,.13);
+    --danger:#FF5470;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:16px;
+    overscroll-behavior-y:none;
+    -webkit-font-smoothing:antialiased;
+  }
+  button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+  input{font:inherit}
+
+  #app{
+    max-width:520px;margin:0 auto;min-height:100dvh;
+    display:flex;flex-direction:column;
+    padding-bottom:calc(76px + env(safe-area-inset-bottom));
+  }
+
+  /* ---------- header ---------- */
+  header{
+    padding:22px 20px 14px;
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+  }
+  .h-title{display:flex;flex-direction:column;gap:2px}
+  .h-eyebrow{
+    font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  }
+  .h-day{font-size:26px;font-weight:800;letter-spacing:-.01em}
+  .h-right{display:flex;align-items:center;gap:10px;flex:none}
+  .streak{
+    display:flex;align-items:center;gap:5px;
+    background:var(--elevated);border:1px solid var(--line);border-radius:999px;
+    padding:9px 13px;font-size:14px;font-weight:800;color:var(--muted);
+  }
+  .streak.hot{background:var(--accent-soft);border-color:rgba(255,122,61,.45);color:var(--accent)}
+  .ring{position:relative;width:58px;height:58px;flex:none}
+  .ring svg{transform:rotate(-90deg)}
+  .ring circle{fill:none;stroke-width:5}
+  .ring .bgc{stroke:var(--elevated)}
+  .ring .fgc{stroke:var(--done);stroke-linecap:round;transition:stroke-dashoffset .45s ease}
+  .ring span{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:800;
+  }
+
+  main{flex:1;padding:0 16px}
+
+  /* ---------- cards ---------- */
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px;margin-bottom:12px;
+  }
+  .card.done-card{border-color:rgba(61,220,151,.35);background:linear-gradient(180deg,var(--done-soft),var(--surface) 70%)}
+  .ex-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
+  .ex-name{font-size:17px;font-weight:700}
+  .ex-count{font-size:13px;font-weight:700;color:var(--muted);white-space:nowrap}
+  .ex-count b{color:var(--text)}
+  .ex-note{font-size:13.5px;color:var(--muted);margin-bottom:12px}
+
+  /* set circles — the heart of the app */
+  .sets{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+  .set{
+    width:48px;height:48px;border-radius:50%;
+    border:2.5px solid var(--line);
+    background:var(--elevated);
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:800;color:var(--muted);
+    transition:transform .12s ease,background .18s,border-color .18s,color .18s;
+    user-select:none;-webkit-user-select:none;
+  }
+  .set:active{transform:scale(.88)}
+  .set.on{
+    background:var(--done);border-color:var(--done);color:#07130D;
+    animation:pop .28s ease;
+  }
+  .set.on::after{content:"✓";font-size:19px;font-weight:900}
+  .set.on span{display:none}
+  @keyframes pop{
+    0%{transform:scale(.7)}55%{transform:scale(1.12)}100%{transform:scale(1)}
+  }
+
+  /* ---------- empty states ---------- */
+  .empty{
+    text-align:center;padding:52px 24px;color:var(--muted);
+  }
+  .empty .big{font-size:40px;margin-bottom:12px}
+  .empty h3{color:var(--text);font-size:17px;margin-bottom:6px}
+  .empty p{font-size:14px;line-height:1.5}
+
+  /* ---------- section head ---------- */
+  .sec-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 4px 14px;
+  }
+  .sec-head h2{font-size:22px;font-weight:800;letter-spacing:-.01em}
+  .add-btn{
+    background:var(--accent);color:#1A0E05;font-weight:800;font-size:14px;
+    padding:10px 16px;border-radius:999px;
+    display:flex;align-items:center;gap:6px;
+    transition:transform .12s ease;
+  }
+  .add-btn:active{transform:scale(.94)}
+
+  /* ---------- list rows ---------- */
+  .row{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px 16px;margin-bottom:10px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .row-info{min-width:0}
+  .row-name{font-size:16px;font-weight:700;margin-bottom:3px}
+  .row-name:last-child{margin-bottom:0}
+  .row-sub{font-size:13px;color:var(--muted);overflow:hidden;text-overflow:ellipsis}
+  .row-actions{display:flex;gap:6px;flex:none}
+  .icon-btn{
+    width:38px;height:38px;border-radius:12px;background:var(--elevated);
+    display:flex;align-items:center;justify-content:center;font-size:16px;
+    transition:transform .12s ease;
+  }
+  .icon-btn:active{transform:scale(.9)}
+  .icon-btn.del{color:var(--danger)}
+  .icon-btn.sm{width:30px;height:30px;border-radius:9px;font-size:12px}
+
+  .grp-h{
+    font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent);padding:14px 4px 8px;
+  }
+  .grp-h:first-of-type{padding-top:4px}
+
+  /* compact exercise list grouped into cards */
+  .grp-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    margin-bottom:10px;overflow:hidden;
+  }
+  .exr{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:8px 8px 8px 14px;border-top:1px solid var(--line);
+  }
+  .exr:first-child{border-top:none}
+  .exr span{font-size:14.5px;font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .exr .row-actions{gap:4px}
+
+  /* search / create field in the plan day picker */
+  .pick-search input{
+    width:100%;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    color:var(--text);padding:11px 13px;font-size:15px;outline:none;margin:2px 0 4px;
+  }
+  .pick-search input:focus{border-color:var(--accent)}
+  .create-opt{
+    width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;
+    background:var(--accent-soft);border:1px solid rgba(255,122,61,.4);border-radius:14px;
+    padding:12px 14px;font-size:15px;font-weight:700;color:var(--accent);text-align:left;
+    margin:8px 0 2px;
+  }
+
+  .act-btn{
+    margin-top:10px;padding:10px 0;border-radius:12px;background:var(--elevated);
+    font-size:13.5px;font-weight:800;color:var(--muted);border:1px solid transparent;
+    transition:transform .12s ease;
+  }
+  .act-btn:active{transform:scale(.97)}
+  .act-btn.on{background:var(--done-soft);color:var(--done);border-color:rgba(61,220,151,.4)}
+
+  .plan-head{display:flex;align-items:center;justify-content:space-between;padding:6px 4px 10px}
+  .link-btn{font-size:12px;font-weight:800;color:var(--accent);letter-spacing:.02em}
+
+  .day-chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+  .chip{
+    font-size:11px;font-weight:800;letter-spacing:.04em;
+    padding:4px 9px;border-radius:999px;background:var(--elevated);color:var(--muted);
+  }
+  .chip.on{background:var(--accent-soft);color:var(--accent)}
+
+  /* per-day accordion in plan editor */
+  .day-block{
+    background:var(--elevated);border:1px solid transparent;border-radius:14px;
+    padding:4px 12px;margin-bottom:8px;
+  }
+  .day-block.open{border-color:var(--line)}
+  .day-row{
+    width:100%;display:flex;align-items:center;justify-content:space-between;
+    padding:10px 2px;font-size:15px;font-weight:700;text-align:left;
+  }
+  .day-meta{font-size:13px;font-weight:700;color:var(--muted)}
+  .day-meta.has{color:var(--accent)}
+
+  /* exercise entry inside a plan day */
+  .entry{
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:10px 12px;margin-bottom:8px;
+  }
+  .entry-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+  .entry-top span{font-size:14.5px;font-weight:700}
+  .entry-rm{color:var(--danger);font-size:15px;padding:2px 6px}
+  .entry-ctrl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .mini-step{
+    display:flex;align-items:center;gap:2px;
+    background:var(--elevated);border-radius:10px;padding:2px;
+  }
+  .mini-step button{
+    width:32px;height:32px;border-radius:8px;font-size:17px;font-weight:800;
+  }
+  .mini-step b{min-width:34px;text-align:center;font-size:14px}
+  .mini-step small{font-size:10px;color:var(--muted);display:block;font-weight:700}
+  .mini-in{position:relative}
+  .mini-in input{
+    width:74px;background:var(--elevated);border:1px solid var(--line);border-radius:10px;
+    color:var(--text);padding:8px 10px;font-size:14px;font-weight:700;outline:none;
+  }
+  .mini-in input:focus{border-color:var(--accent)}
+  .mini-in label{
+    position:absolute;top:-7px;left:8px;font-size:9px;font-weight:800;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--muted);background:var(--surface);padding:0 4px;
+  }
+  .add-ex-day{
+    width:100%;padding:10px 0;margin:2px 0 10px;border-radius:12px;
+    border:1.5px dashed var(--line);color:var(--accent);font-size:13.5px;font-weight:800;
+  }
+
+  /* plan/day picker on Today screen */
+  .pick-plan{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px 16px;margin-bottom:10px;
+  }
+  .pick-plan-name{font-size:16px;font-weight:700;margin-bottom:10px}
+  .pick-days-row{display:flex;gap:7px;flex-wrap:wrap}
+  .daybtn{
+    padding:9px 14px;border-radius:12px;background:var(--elevated);
+    font-size:13px;font-weight:800;color:var(--muted);border:1px solid transparent;
+    transition:transform .12s ease;
+  }
+  .daybtn:active{transform:scale(.92)}
+  .daybtn.today{background:var(--accent-soft);color:var(--accent);border-color:rgba(255,122,61,.4)}
+
+  /* ---------- bottom nav ---------- */
+  nav{
+    position:fixed;left:0;right:0;bottom:0;z-index:20;
+    background:rgba(15,18,24,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-top:1px solid var(--line);
+    padding:8px 0 calc(8px + env(safe-area-inset-bottom));
+  }
+  .nav-inner{max-width:520px;margin:0 auto;display:flex}
+  .tab{
+    flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
+    padding:6px 0;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.03em;
+  }
+  .tab .ico{font-size:21px;line-height:1}
+  .tab.active{color:var(--accent)}
+
+  /* ---------- bottom sheet ---------- */
+  .overlay{
+    position:fixed;inset:0;background:rgba(5,7,10,.6);z-index:40;
+    opacity:0;pointer-events:none;transition:opacity .22s ease;
+  }
+  .overlay.show{opacity:1;pointer-events:auto}
+  .sheet{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    max-width:520px;margin:0 auto;
+    background:var(--surface);border:1px solid var(--line);border-bottom:none;
+    border-radius:24px 24px 0 0;
+    padding:14px 20px 0;
+    transform:translateY(105%);transition:transform .28s cubic-bezier(.32,.72,.22,1);
+    max-height:88dvh;overflow-y:auto;
+  }
+  .sheet.show{transform:translateY(0)}
+  .grabber{width:40px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 16px}
+  .sheet h3{font-size:19px;font-weight:800;margin-bottom:18px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .field input[type=text]{
+    width:100%;background:var(--elevated);border:1px solid var(--line);border-radius:14px;
+    color:var(--text);padding:13px 14px;font-size:16px;outline:none;
+  }
+  .field input[type=text]:focus{border-color:var(--accent)}
+
+  .stepper{display:flex;align-items:center;gap:18px}
+  .stepper button{
+    width:46px;height:46px;border-radius:14px;background:var(--elevated);
+    font-size:22px;font-weight:800;transition:transform .12s ease;
+  }
+  .stepper button:active{transform:scale(.9)}
+  .stepper .val{font-size:26px;font-weight:800;min-width:38px;text-align:center}
+
+  .grp-pick{display:flex;gap:7px;flex-wrap:wrap}
+  .grp-pick button{
+    padding:9px 13px;border-radius:12px;background:var(--elevated);
+    font-size:13px;font-weight:800;color:var(--muted);border:1px solid transparent;
+    transition:transform .12s ease;
+  }
+  .grp-pick button:active{transform:scale(.94)}
+  .grp-pick button.on{background:var(--accent-soft);color:var(--accent);border-color:rgba(255,122,61,.4)}
+
+  .pick-ex{display:flex;flex-direction:column;gap:8px}
+  .pick-ex .opt{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    background:var(--elevated);border:1px solid transparent;border-radius:14px;
+    padding:12px 14px;font-size:15px;font-weight:600;text-align:left;
+  }
+  .pick-ex .opt small{color:var(--muted);font-weight:600}
+  .pick-ex .opt .mark{
+    width:24px;height:24px;border-radius:50%;border:2px solid var(--line);flex:none;
+    display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;
+  }
+  .day-block .pick-ex{margin:4px 0 10px}
+  .day-block .pick-ex .opt{background:var(--surface)}
+  .day-block .grp-h{padding:10px 2px 8px;font-size:11px}
+
+  .sheet-actions{
+    display:flex;gap:10px;margin-top:22px;
+    position:sticky;bottom:0;z-index:5;
+    background:linear-gradient(180deg,transparent,var(--surface) 26%);
+    padding:16px 0 calc(24px + env(safe-area-inset-bottom));
+  }
+  .btn{
+    flex:1;padding:15px 0;border-radius:16px;font-size:16px;font-weight:800;
+    transition:transform .12s ease;
+  }
+  .btn:active{transform:scale(.96)}
+  .btn.primary{background:var(--accent);color:#1A0E05}
+  .btn.ghost{background:var(--elevated);color:var(--muted)}
+
+  .hint{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.45}
+
+  .toast{
+    position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(16px);
+    background:var(--elevated);border:1px solid var(--line);border-radius:999px;
+    padding:11px 20px;font-size:14px;font-weight:700;z-index:60;
+    opacity:0;pointer-events:none;transition:all .25s ease;white-space:nowrap;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  .finish-banner{
+    text-align:center;padding:26px 20px;border-radius:var(--radius);
+    background:var(--done-soft);border:1px solid rgba(61,220,151,.4);
+    margin-bottom:12px;
+  }
+  .finish-banner .big{font-size:34px;margin-bottom:8px}
+  .finish-banner h3{font-size:18px;font-weight:800;color:var(--done);margin-bottom:4px}
+  .finish-banner p{font-size:13.5px;color:var(--muted)}
+
+  .plan-label{
+    font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);padding:6px 4px 10px;
+  }
+
+  /* ---------- rest timer bar ---------- */
+  #restbar{
+    position:fixed;left:0;right:0;bottom:calc(72px + env(safe-area-inset-bottom));z-index:30;
+    max-width:520px;margin:0 auto;padding:0 16px;
+    transform:translateY(20px);opacity:0;pointer-events:none;transition:all .25s ease;
+  }
+  #restbar.show{transform:translateY(0);opacity:1;pointer-events:auto}
+  .rest-card{
+    position:relative;overflow:hidden;
+    background:var(--elevated);border:1px solid rgba(255,122,61,.45);border-radius:16px;
+  }
+  #rest-fill{
+    position:absolute;inset:0;width:0%;
+    background:var(--accent-soft);transition:width .25s linear;
+  }
+  .rest-inner{
+    position:relative;display:flex;align-items:center;justify-content:space-between;
+    gap:10px;padding:12px 8px 12px 16px;
+  }
+  .rest-inner span{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+  .rest-inner b{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+  #rest-skip{
+    width:38px;height:38px;border-radius:12px;color:var(--muted);font-size:15px;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* ---------- overview tab ---------- */
+  .stat-grid{display:flex;gap:10px;margin-bottom:12px}
+  .stat{
+    flex:1;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px;text-align:center;
+  }
+  .stat .num{font-size:24px;font-weight:800}
+  .stat .lbl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .card h4{
+    font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:12px;
+  }
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+  .cal-dow{font-size:10px;font-weight:800;color:var(--muted);text-align:center;padding-bottom:2px}
+  .cal-cell{
+    aspect-ratio:1;border-radius:6px;background:var(--elevated);
+  }
+  .cal-cell.on{background:var(--done)}
+  .cal-cell.today{outline:2px solid var(--accent);outline-offset:1px}
+  .cal-cell.future{opacity:.25}
+  .chip-scroll{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+  .chart-wrap svg{width:100%;height:auto;display:block}
+  .set-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .set-row .lbl2{font-size:14.5px;font-weight:700}
+  .set-row .sub2{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .backup-btns{display:flex;gap:10px;margin-top:4px}
+  .backup-btns .btn{padding:13px 0;font-size:14.5px}
+
+  /* water pill in header */
+  .waterbtn{
+    position:relative;width:44px;height:44px;border-radius:50%;flex:none;
+    background:var(--elevated);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:19px;
+    transition:transform .12s ease;overflow:hidden;
+  }
+  .waterbtn:active{transform:scale(.9)}
+  .waterbtn .wfill{
+    position:absolute;left:0;right:0;bottom:0;background:rgba(77,163,255,.3);
+    transition:height .35s ease;
+  }
+  .waterbtn.full{border-color:rgba(61,220,151,.5)}
+  .waterbtn.full .wfill{background:rgba(61,220,151,.28)}
+  .waterbtn i{position:relative;font-style:normal}
+
+  /* water sheet */
+  .w-amount{text-align:center;margin-bottom:14px}
+  .w-amount .big2{font-size:34px;font-weight:800;letter-spacing:-.02em}
+  .w-amount .sub3{font-size:13px;color:var(--muted);margin-top:2px}
+  .hydro-bar{height:12px;border-radius:6px;background:var(--elevated);overflow:hidden;margin-bottom:18px}
+  .hydro-fill{height:100%;border-radius:6px;background:#4DA3FF;transition:width .3s ease}
+  .hydro-fill.full{background:var(--done)}
+  .w-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:10px}
+  .w-grid button{
+    padding:16px 0;border-radius:14px;background:var(--elevated);
+    font-size:15px;font-weight:800;color:#4DA3FF;transition:transform .12s ease;
+  }
+  .w-grid button:active{transform:scale(.94)}
+  .w-undo{
+    width:100%;padding:12px 0;border-radius:14px;background:transparent;
+    border:1px solid var(--line);color:var(--muted);font-size:13.5px;font-weight:800;
+  }
+
+  /* last-time line + custom set marker */
+  .last-line{
+    font-size:12.5px;font-weight:700;color:#8B93A5;
+    background:var(--elevated);border-radius:8px;padding:5px 9px;
+    display:inline-block;margin-bottom:2px;
+  }
+  .set.custom{box-shadow:inset 0 0 0 2px var(--surface),0 0 0 2px var(--accent)}
+  .set-hint{font-size:11.5px;color:var(--muted);margin-top:9px}
+
+  /* horizontal distribution bars */
+  .dist-row{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+  .dist-row .dn{font-size:12.5px;font-weight:700;width:64px;flex:none;color:var(--muted)}
+  .dist-row .db{flex:1;height:9px;border-radius:5px;background:var(--elevated);overflow:hidden}
+  .dist-row .db i{display:block;height:100%;border-radius:5px;background:var(--accent)}
+  .dist-row .dv{font-size:12px;font-weight:800;width:34px;text-align:right;flex:none}
+
+  /* backup nudge */
+  .nudge{
+    background:var(--accent-soft);border:1px solid rgba(255,122,61,.4);border-radius:14px;
+    padding:12px 14px;margin-bottom:10px;font-size:13.5px;font-weight:700;color:var(--accent);
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+  }
+  .nudge button{font-size:12.5px;font-weight:800;color:var(--accent);text-decoration:underline;flex:none}
+
+  .cal-cell.has{cursor:pointer}
+  .sess-ex{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:9px 0;border-top:1px solid var(--line);font-size:14.5px;
+  }
+  .sess-ex:first-of-type{border-top:none}
+  .sess-ex b{font-weight:700}
+  .sess-ex span{font-size:13px;color:var(--muted);font-weight:700;white-space:nowrap}
+
+  /* collapsible sections (overview) */
+  .sec{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    margin-bottom:10px;overflow:hidden;
+  }
+  .sec-btn{
+    width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:16px;text-align:left;
+  }
+  .sec-btn .t{font-size:15px;font-weight:700}
+  .sec-btn .v{font-size:13px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:8px}
+  .sec-btn .arw{color:var(--muted);font-size:12px;transition:transform .2s ease}
+  .sec.open .sec-btn .arw{transform:rotate(180deg)}
+  .sec-body{padding:0 16px 16px}
+</style>
+</head>
+<body>
+<div id="app">
+  <header id="header"></header>
+  <main id="main"></main>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <button class="tab" data-tab="today"><span class="ico">🏠</span>Dnes</button>
+    <button class="tab" data-tab="exercises"><span class="ico">💪</span>Cviky</button>
+    <button class="tab" data-tab="plans"><span class="ico">📅</span>Plány</button>
+    <button class="tab" data-tab="overview"><span class="ico">📈</span>Přehled</button>
+  </div>
+</nav>
+
+<div id="restbar">
+  <div class="rest-card">
+    <div id="rest-fill"></div>
+    <div class="rest-inner">
+      <span>⏱️ Pauza</span>
+      <b id="rest-time">0:00</b>
+      <button id="rest-skip" aria-label="Zrušit pauzu">✕</button>
+    </div>
+  </div>
+</div>
+<input type="file" id="import-file" accept=".json,application/json" style="display:none">
+
+<div class="overlay" id="overlay"></div>
+<div class="sheet" id="sheet"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+
+/* ================= constants ================= */
+const KEY = "trenink-app-v1";
+const DAYS = ["Ne","Po","Út","St","Čt","Pá","So"];
+const DAYS_ORDER = [1,2,3,4,5,6,0];
+const DAY_FULL = ["Neděle","Pondělí","Úterý","Středa","Čtvrtek","Pátek","Sobota"];
+const MONTHS = ["ledna","února","března","dubna","května","června","července","srpna","září","října","listopadu","prosince"];
+
+const CATALOG = {
+  "Prsa": ["Bench press","Tlaky s jednoručkami na šikmé lavici","Rozpažky s jednoručkami","Kliky","Peck-deck"],
+  "Záda": ["Mrtvý tah","Shyby","Přítahy velké činky v předklonu","Stahování horní kladky","Veslování na spodní kladce"],
+  "Ramena": ["Tlaky nad hlavu","Upažování s jednoručkami","Arnoldovy tlaky","Předpažování","Obrácené rozpažky"],
+  "Biceps": ["Bicepsový zdvih s velkou činkou","Střídavé zdvihy s jednoručkami","Kladivové zdvihy","Zdvihy na Scottově lavici"],
+  "Triceps": ["Francouzský tlak","Stahování kladky na triceps","Kliky na bradlech","Tricepsové kick-backy"],
+  "Nohy": ["Dřepy","Leg press","Výpady","Rumunský mrtvý tah","Předkopávání","Zakopávání","Výpony na lýtka"],
+  "Břicho": ["Zkracovačky","Plank","Přednosy nohou ve visu","Ruské otočky"],
+  "Kardio": ["Angličáky (burpees)","Kettlebell swing","Švihadlo","Veslovací trenažér"]
+};
+const GROUPS = [...Object.keys(CATALOG), "Ostatní"];
+
+/* ================= state & storage ================= */
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2,7);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+let state = load();
+let activeTab = "today";
+let exSearch = "";
+
+function dateStr(d){
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+function todayStr(){ return dateStr(new Date()); }
+
+function seedCatalog(s){
+  const names = new Set(s.exercises.map(e => e.name.toLowerCase()));
+  for(const g of Object.keys(CATALOG)){
+    for(const name of CATALOG[g]){
+      if(!names.has(name.toLowerCase())){
+        s.exercises.push({ id: uid(), name, group: g });
+      }
+    }
+  }
+  s.seeded = true;
+}
+
+function load(){
+  try{
+    const raw = localStorage.getItem(KEY);
+    if(raw){
+      const s = JSON.parse(raw);
+      if(s && Array.isArray(s.exercises) && Array.isArray(s.plans)){
+        if(s.activePlanId === undefined) s.activePlanId = null;
+        if(!Array.isArray(s.completedDays)) s.completedDays = [];
+        if(s.daily && s.daily.manualPlanId === undefined) s.daily.manualPlanId = null;
+        if(s.daily && s.daily.manualDay === undefined) s.daily.manualDay = null;
+        if(!s.settings) s.settings = { restTimer: 90 };
+        if(s.settings.restTimer === undefined) s.settings.restTimer = 90;
+        if(s.settings.waterGoal === undefined) s.settings.waterGoal = 2000;
+        if(!s.history || typeof s.history !== "object") s.history = {};
+        if(!s.bodyWeight || typeof s.bodyWeight !== "object") s.bodyWeight = {};
+        if(!s.water || typeof s.water !== "object") s.water = {};
+        if(!s.sessions || typeof s.sessions !== "object") s.sessions = {};
+        if(s.lastBackup === undefined) s.lastBackup = null;
+
+        /* migrace 1: plán { days, exerciseIds } → { schedule } */
+        for(const p of s.plans){
+          if(!p.schedule){
+            p.schedule = {};
+            const days = Array.isArray(p.days) ? p.days : [];
+            const ids = Array.isArray(p.exerciseIds) ? p.exerciseIds : [];
+            for(const d of days) p.schedule[d] = [...ids];
+            delete p.days; delete p.exerciseIds;
+          }
+        }
+        /* migrace 2: schedule s prostými id → záznamy {exId, sets, weight, reps};
+           série/váha/poznámka se přenesou z cviku do záznamů v plánu */
+        for(const p of s.plans){
+          for(const d in p.schedule){
+            p.schedule[d] = p.schedule[d].map(item => {
+              if(typeof item === "string"){
+                const ex = s.exercises.find(e => e.id === item);
+                return {
+                  exId: item,
+                  sets: ex && ex.sets ? ex.sets : 3,
+                  weight: ex && ex.weight != null ? ex.weight : null,
+                  reps: ex && ex.note ? String(ex.note).slice(0,20) : ""
+                };
+              }
+              return item;
+            });
+          }
+        }
+        /* migrace 3: cvik už nenese série/váhu/poznámku, jen název a partii */
+        for(const e of s.exercises){
+          if(e.group === undefined) e.group = "Ostatní";
+          delete e.sets; delete e.weight; delete e.note;
+        }
+        if(!s.seeded) seedCatalog(s);
+        return s;
+      }
+    }
+  }catch(e){}
+  const s = { exercises:[], plans:[], activePlanId:null, completedDays:[], seeded:false,
+              settings:{ restTimer: 90, waterGoal: 2000 }, history:{}, bodyWeight:{}, water:{},
+              sessions:{}, lastBackup:null,
+              daily:{ date:todayStr(), progress:{}, manualPlanId:null, manualDay:null } };
+  seedCatalog(s);
+  return s;
+}
+function save(){
+  try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+}
+function ensureToday(){
+  if(!state.daily || state.daily.date !== todayStr()){
+    state.daily = { date: todayStr(), progress:{}, manualPlanId:null, manualDay:null };
+    save();
+  }
+}
+
+/* zaznamená / odebere dnešek podle toho, zda je celý plán odcvičený */
+function updateCompletedToday(total, done){
+  if(total <= 0) return;
+  const t = todayStr();
+  const has = state.completedDays.includes(t);
+  if(done === total && !has){ state.completedDays.push(t); save(); }
+  if(done < total && has){ state.completedDays = state.completedDays.filter(x => x !== t); save(); }
+}
+
+/* počet odcvičených dnů v řadě (dnešek se počítá, jinak řada končící včerejškem) */
+function computeStreak(){
+  const set = new Set(state.completedDays);
+  const d = new Date();
+  if(!set.has(dateStr(d))) d.setDate(d.getDate()-1);
+  let n = 0;
+  while(set.has(dateStr(d))){ n++; d.setDate(d.getDate()-1); }
+  return n;
+}
+
+/* ================= helpers ================= */
+function exById(id){ return state.exercises.find(e => e.id === id); }
+function entriesOf(p, d){
+  return (p.schedule && p.schedule[d] ? p.schedule[d] : []).filter(en => exById(en.exId));
+}
+function todaysWorkout(){
+  const dow = new Date().getDay();
+  const manual = state.daily.manualPlanId ? state.plans.find(p => p.id === state.daily.manualPlanId) : null;
+  const active = state.activePlanId ? state.plans.find(p => p.id === state.activePlanId) : null;
+
+  let plan = null, mode = "none", day = dow;
+  if(manual){ plan = manual; mode = "manual"; day = (state.daily.manualDay ?? dow); }
+  else if(active && entriesOf(active, dow).length){ plan = active; mode = "active"; }
+  else if(active){ mode = "rest"; }
+
+  const entries = plan ? entriesOf(plan, day) : [];
+  return { plan, mode, entries, day, dow };
+}
+function progressOf(entry){
+  const arr = state.daily.progress[entry.exId] || [];
+  let n = 0;
+  for(let i=0;i<entry.sets;i++) if(arr[i]) n++;
+  return n;
+}
+function plural(n,a,b,c){ return n===1?a : (n>=2&&n<=4?b:c); }
+const fmtL = ml => (ml/1000).toLocaleString("cs-CZ", { maximumFractionDigits: 2 });
+
+
+/* ---------- deník tréninků ---------- */
+function sessionForToday(plan, day){
+  const t = todayStr();
+  let s = state.sessions[t];
+  if(!s) s = state.sessions[t] = { planId: plan.id, planName: plan.name, day, ex: {} };
+  else { s.planId = plan.id; s.planName = plan.name; s.day = day; }
+  return s;
+}
+function recordSet(plan, day, en, i, on, custom){
+  const s = sessionForToday(plan, day);
+  const ex = exById(en.exId);
+  let rec = s.ex[en.exId];
+  if(!rec) rec = s.ex[en.exId] = { name: ex ? ex.name : "?", sets: [] };
+  while(rec.sets.length < en.sets) rec.sets.push(null);
+  if(on) rec.sets[i] = custom || rec.sets[i] || { w: en.weight, r: en.reps || "" };
+  else rec.sets[i] = null;
+  if(!rec.sets.some(Boolean)) delete s.ex[en.exId];
+  if(!Object.keys(s.ex).length) delete state.sessions[t];
+}
+function setLogOf(exId, i){
+  const s = state.sessions[todayStr()];
+  return s && s.ex[exId] ? (s.ex[exId].sets[i] || null) : null;
+}
+function lastSessionFor(exId){
+  const t = todayStr();
+  const dates = Object.keys(state.sessions).filter(d => d < t).sort().reverse();
+  for(const d of dates){
+    const rec = state.sessions[d].ex[exId];
+    if(rec){
+      const done = rec.sets.filter(Boolean);
+      if(done.length) return { date: d, sets: done };
+    }
+  }
+  return null;
+}
+const numReps = r => { const m = String(r == null ? "" : r).match(/\d+/); return m ? +m[0] : 0; };
+function summarizeSets(sets){
+  const ws = sets.map(s => s.w);
+  const rs = sets.map(s => s.r || "");
+  const sameW = ws.every(w => w === ws[0]);
+  const sameR = rs.every(r => r === rs[0]);
+  const rPart = sameR ? (rs[0] ? "×" + rs[0] : "") : "×(" + rs.join("/") + ")";
+  const wPart = sameW
+    ? (ws[0] != null ? ws[0] + " kg" : "")
+    : ws.map(w => w == null ? "–" : w).join("/") + " kg";
+  return sets.length + rPart + (wPart ? " · " + wPart : "");
+}
+function volumeOfSets(sets){
+  let v = 0;
+  for(const s of sets) if(s && s.w != null) v += s.w * (numReps(s.r) || 1);
+  return v;
+}
+function sessionVolume(sess){
+  let v = 0;
+  for(const id in sess.ex) v += volumeOfSets(sess.ex[id].sets.filter(Boolean));
+  return v;
+}
+function best1RM(sets){
+  let best = 0;
+  for(const s of sets){
+    if(!s || s.w == null) continue;
+    const r = numReps(s.r) || 1;
+    best = Math.max(best, s.w * (1 + r/30));
+  }
+  return best;
+}
+const fmtVol = v => v >= 1000 ? (v/1000).toFixed(1).replace(".", ",") + " t" : Math.round(v) + " kg";
+const fmtShort = ds => { const p = ds.split("-"); return (+p[2])+"."+(+p[1])+"."; };
+
+/* ---------- hydratace ---------- */
+function waterBtnHTML(){
+  const cur = state.water[todayStr()] || 0;
+  const goal = state.settings.waterGoal;
+  const pct = Math.min(100, Math.round(cur/goal*100));
+  return `
+    <button class="waterbtn ${cur >= goal ? "full" : ""}" id="waterBtn" title="Hydratace" aria-label="Hydratace">
+      <div class="wfill" style="height:${pct}%"></div>
+      <i>💧</i>
+    </button>`;
+}
+function openWaterSheet(){
+  const render2 = () => {
+    const cur = state.water[todayStr()] || 0;
+    const goal = state.settings.waterGoal;
+    const pct = Math.min(100, Math.round(cur/goal*100));
+    $sheet.innerHTML = `
+      <div class="grabber"></div>
+      <h3 style="margin-bottom:14px">💧 Hydratace</h3>
+      <div class="w-amount">
+        <div class="big2">${fmtL(cur)} l</div>
+        <div class="sub3">z cíle ${fmtL(goal)} l ${cur >= goal ? "· splněno ✓" : `· zbývá ${fmtL(Math.max(0, goal-cur))} l`}</div>
+      </div>
+      <div class="hydro-bar"><div class="hydro-fill ${cur >= goal ? "full" : ""}" style="width:${pct}%"></div></div>
+      <div class="w-grid">
+        <button data-water="200">+200<br><small style="font-weight:600;color:var(--muted)">ml</small></button>
+        <button data-water="330">+330<br><small style="font-weight:600;color:var(--muted)">ml</small></button>
+        <button data-water="500">+500<br><small style="font-weight:600;color:var(--muted)">ml</small></button>
+      </div>
+      <button class="w-undo" data-water="-250">− 250 ml (oprava)</button>
+      <div class="sheet-actions">
+        <button class="btn primary" id="w-close">Hotovo</button>
+      </div>`;
+    $sheet.querySelectorAll("[data-water]").forEach(b =>
+      b.addEventListener("click", () => {
+        const t = todayStr();
+        state.water[t] = Math.max(0, (state.water[t] || 0) + (+b.dataset.water));
+        save(); render2();
+        const btn = document.getElementById("waterBtn");
+        if(btn){
+          const cur2 = state.water[t] || 0;
+          btn.classList.toggle("full", cur2 >= state.settings.waterGoal);
+          btn.querySelector(".wfill").style.height = Math.min(100, Math.round(cur2/state.settings.waterGoal*100)) + "%";
+        }
+      }));
+    document.getElementById("w-close").addEventListener("click", closeSheet);
+  };
+  $overlay.classList.add("show");
+  render2();
+  requestAnimationFrame(() => $sheet.classList.add("show"));
+}
+function bindWater(){
+  const b = document.getElementById("waterBtn");
+  if(b) b.addEventListener("click", openWaterSheet);
+}
+
+/* ================= render ================= */
+const $header = document.getElementById("header");
+const $main = document.getElementById("main");
+
+function render(){
+  ensureToday();
+  document.querySelectorAll(".tab").forEach(t =>
+    t.classList.toggle("active", t.dataset.tab === activeTab));
+  if(activeTab === "today") renderToday();
+  if(activeTab === "exercises") renderExercises();
+  if(activeTab === "plans") renderPlans();
+  if(activeTab === "overview") renderOverview();
+}
+
+/* ---------- Dnes ---------- */
+function renderToday(){
+  const d = new Date();
+  const {plan, mode, entries, day, dow} = todaysWorkout();
+
+  let total = 0, done = 0;
+  for(const en of entries){ total += en.sets; done += progressOf(en); }
+  const pct = total ? Math.round(done/total*100) : 0;
+  const C = 2 * Math.PI * 25;
+
+  updateCompletedToday(total, done);
+  const streak = computeStreak();
+
+  $header.innerHTML = `
+    <div class="h-title">
+      <span class="h-eyebrow">${DAY_FULL[d.getDay()]} · ${d.getDate()}. ${MONTHS[d.getMonth()]}</span>
+      <span class="h-day">Dnešní trénink</span>
+    </div>
+    <div class="h-right">
+      ${waterBtnHTML()}
+      <div class="streak ${streak > 0 ? "hot" : ""}" title="Odcvičené dny v řadě">🔥 ${streak}</div>
+      ${total ? `
+      <div class="ring">
+        <svg width="58" height="58" viewBox="0 0 58 58">
+          <circle class="bgc" cx="29" cy="29" r="25"></circle>
+          <circle class="fgc" cx="29" cy="29" r="25"
+            stroke-dasharray="${C.toFixed(1)}"
+            stroke-dashoffset="${(C*(1-pct/100)).toFixed(1)}"></circle>
+        </svg>
+        <span>${pct}%</span>
+      </div>` : ``}
+    </div>
+  `;
+
+  /* --- žádný trénink na dnešek --- */
+  if(!plan){
+    if(state.plans.length === 0){
+      $main.innerHTML = `
+        <div class="empty">
+          <div class="big">🌤️</div>
+          <h3>Zatím tu nic není</h3>
+          <p>Vytvoř si plán v záložce <b>Plány</b> — cviky už na tebe čekají v záložce <b>Cviky</b>.</p>
+        </div>`;
+      bindWater();
+      return;
+    }
+    const picker = state.plans.map(p => {
+      const daysWith = DAYS_ORDER.filter(dd => entriesOf(p, dd).length);
+      const btns = daysWith.length
+        ? daysWith.map(dd =>
+            `<button class="daybtn ${dd === dow ? "today" : ""}" data-pick="${p.id}" data-day="${dd}">${DAYS[dd]}${dd === dow ? " · dnes" : ""}</button>`).join("")
+        : `<span class="hint">žádné cviky v plánu</span>`;
+      return `
+        <div class="pick-plan">
+          <div class="pick-plan-name">${esc(p.name)}</div>
+          <div class="pick-days-row">${btns}</div>
+        </div>`;
+    }).join("");
+
+    $main.innerHTML = `
+      <div class="empty" style="padding-bottom:20px">
+        <div class="big">${mode === "rest" ? "🌤️" : "🗓️"}</div>
+        <h3>${mode === "rest" ? "Dnes máš podle plánu volno" : "Žádný aktivní plán"}</h3>
+        <p>${mode === "rest"
+          ? "Aktivní plán dnes nic nepředepisuje. Chceš přesto cvičit? Vyber si plán a den ručně."
+          : "Nastav si aktivní plán v záložce <b>Plány</b>, nebo si vyber dnešní trénink ručně."}</p>
+      </div>
+      <div class="plan-label">Vybrat trénink na dnešek</div>
+      ${picker}`;
+
+    bindWater();
+    $main.querySelectorAll("[data-pick]").forEach(b =>
+      b.addEventListener("click", () => {
+        state.daily.manualPlanId = b.dataset.pick;
+        state.daily.manualDay = +b.dataset.day;
+        save(); render();
+        toast("Trénink vybrán na dnešek");
+      }));
+    return;
+  }
+
+  /* --- trénink --- */
+  let html = "";
+  if(total > 0 && done === total){
+    html += `
+      <div class="finish-banner">
+        <div class="big">🏆</div>
+        <h3>Hotovo!</h3>
+        <p>Všech ${total} sérií odcvičeno. ${streak > 1 ? `To je už ${streak}. den v řadě! 🔥` : "Skvělá práce."}</p>
+      </div>`;
+  }
+
+  html += `
+    <div class="plan-head">
+      <span class="plan-label" style="padding:0">${esc(plan.name)}${mode === "manual" ? ` · ${DAY_FULL[day]}${day !== dow ? " (ručně)" : ""}` : ""}</span>
+      ${mode === "manual" ? `<button class="link-btn" id="clearManual">Zrušit výběr</button>` : ""}
+    </div>`;
+
+  for(const en of entries){
+    const ex = exById(en.exId);
+    const arr = state.daily.progress[en.exId] || [];
+    const doneN = progressOf(en);
+    const finished = doneN === en.sets;
+    const sub = [
+      en.weight != null && en.weight !== "" ? `🏋️ ${en.weight} kg` : "",
+      en.reps ? `${esc(en.reps)} opak.` : ""
+    ].filter(Boolean).join(" · ");
+    const last = lastSessionFor(en.exId);
+    let circles = "";
+    for(let i=0;i<en.sets;i++){
+      const lg = setLogOf(en.exId, i);
+      const custom = lg && (lg.w !== en.weight || (lg.r || "") !== (en.reps || ""));
+      circles += `<button class="set ${arr[i] ? "on":""} ${custom ? "custom":""}" data-ex="${en.exId}" data-i="${i}"><span>${i+1}</span></button>`;
+    }
+    html += `
+      <div class="card ${finished ? "done-card":""}">
+        <div class="ex-top">
+          <div class="ex-name">${esc(ex.name)}</div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div class="ex-count"><b>${doneN}</b> / ${en.sets}</div>
+            <button class="icon-btn sm" data-editen="${en.exId}" aria-label="Upravit série, váhu a opakování">✏️</button>
+          </div>
+        </div>
+        ${sub ? `<div class="ex-note">${sub}</div>` : ""}
+        ${last ? `<div class="last-line">↩︎ minule ${fmtShort(last.date)}: ${summarizeSets(last.sets)}</div>` : ""}
+        <div class="sets">${circles}</div>
+      </div>`;
+  }
+
+  $main.innerHTML = html;
+  bindWater();
+
+  const clr = document.getElementById("clearManual");
+  if(clr) clr.addEventListener("click", () => {
+    state.daily.manualPlanId = null;
+    state.daily.manualDay = null;
+    save(); render();
+  });
+
+  $main.querySelectorAll("[data-editen]").forEach(b =>
+    b.addEventListener("click", () => openEntrySheet(plan, day, b.dataset.editen)));
+
+  /* krátké ťuknutí = odškrtnout, podržení = zapsat skutečnou váhu a opakování */
+  let lpTimer = null, lpFired = false;
+  const cancelLP = () => { clearTimeout(lpTimer); lpTimer = null; };
+  $main.querySelectorAll(".set").forEach(btn => {
+    const id = btn.dataset.ex, i = +btn.dataset.i;
+    const startLP = () => {
+      lpFired = false;
+      lpTimer = setTimeout(() => {
+        lpFired = true;
+        if(navigator.vibrate) navigator.vibrate(25);
+        openSetSheet(plan, day, id, i);
+      }, 480);
+    };
+    btn.addEventListener("touchstart", startLP, { passive: true });
+    btn.addEventListener("touchend", cancelLP);
+    btn.addEventListener("touchmove", cancelLP);
+    btn.addEventListener("touchcancel", cancelLP);
+    btn.addEventListener("mousedown", startLP);
+    btn.addEventListener("mouseup", cancelLP);
+    btn.addEventListener("mouseleave", cancelLP);
+    btn.addEventListener("contextmenu", e => e.preventDefault());
+    btn.addEventListener("click", () => {
+      cancelLP();
+      if(lpFired){ lpFired = false; return; }
+      toggleSet(plan, day, entries, id, i, null);
+    });
+  });
+}
+
+
+/* ---------- odškrtnutí série + zápis do deníku ---------- */
+function toggleSet(plan, day, entries, exId, i, custom){
+  const en = entries.find(e => e.exId === exId);
+  if(!en) return;
+  const arr = state.daily.progress[exId] || (state.daily.progress[exId] = []);
+  if(custom) arr[i] = true; else arr[i] = !arr[i];
+
+  recordSet(plan, day, en, i, arr[i], custom);
+
+  if(arr[i]){
+    /* nejtěžší dnešní váha cviku do historie pro graf progresu */
+    const w = custom && custom.w != null ? custom.w : en.weight;
+    if(w != null){
+      const t = todayStr();
+      if(!state.history[t]) state.history[t] = {};
+      state.history[t][exId] = Math.max(state.history[t][exId] || 0, w);
+    }
+    /* odpočinkový timer — nespouští se po poslední sérii tréninku */
+    let tot = 0, dn = 0;
+    for(const e2 of entries){ tot += e2.sets; dn += progressOf(e2); }
+    if(dn < tot) startRest(plan.restTimer != null ? plan.restTimer : state.settings.restTimer);
+    else stopRest();
+  }
+  save();
+  render();
+}
+
+/* ---------- zápis konkrétní série (podržení kolečka) ---------- */
+function openSetSheet(plan, day, exId, i){
+  const {entries} = todaysWorkout();
+  const en = entries.find(e => e.exId === exId);
+  const ex = exById(exId);
+  if(!en || !ex) return;
+  const cur = setLogOf(exId, i);
+  const w = cur && cur.w != null ? cur.w : (en.weight != null ? en.weight : "");
+  const r = cur && cur.r ? cur.r : (en.reps || "");
+
+  openSheet(`
+    <h3 style="margin-bottom:6px">${esc(ex.name)}</h3>
+    <p class="hint" style="margin:0 0 18px">${i+1}. série ze ${en.sets} — zapiš, co jsi opravdu zvedl</p>
+    <div class="set-row" style="gap:10px">
+      <div class="mini-in" style="flex:1">
+        <label>Váha kg</label>
+        <input id="ss-w" type="text" inputmode="decimal" style="width:100%" value="${w}" placeholder="—" maxlength="7">
+      </div>
+      <div class="mini-in" style="flex:1">
+        <label>Opakování</label>
+        <input id="ss-r" type="text" inputmode="numeric" style="width:100%" value="${esc(r)}" placeholder="—" maxlength="20">
+      </div>
+    </div>
+    <div class="sheet-actions">
+      ${cur ? `<button class="btn ghost" id="ss-clear">Odškrtnout zpět</button>` : `<button class="btn ghost" id="ss-cancel">Zrušit</button>`}
+      <button class="btn primary" id="ss-save">Uložit sérii</button>
+    </div>
+  `);
+
+  const cancelBtn = document.getElementById("ss-cancel");
+  if(cancelBtn) cancelBtn.addEventListener("click", closeSheet);
+  const clearBtn = document.getElementById("ss-clear");
+  if(clearBtn) clearBtn.addEventListener("click", () => {
+    state.daily.progress[exId][i] = false;
+    recordSet(plan, day, en, i, false);
+    save(); closeSheet(); render();
+  });
+  document.getElementById("ss-save").addEventListener("click", () => {
+    const raw = document.getElementById("ss-w").value.trim().replace(",", ".");
+    const val = raw === "" ? null : (isNaN(parseFloat(raw)) ? null : parseFloat(raw));
+    const reps = document.getElementById("ss-r").value.trim();
+    closeSheet();
+    toggleSet(plan, day, entries, exId, i, { w: val, r: reps });
+  });
+}
+
+/* ---------- Cviky ---------- */
+function exListHTML(){
+  const q = exSearch.trim().toLowerCase();
+  let html = "";
+  for(const g of GROUPS){
+    const exs = state.exercises.filter(e =>
+      (e.group || "Ostatní") === g &&
+      (!q || e.name.toLowerCase().includes(q)));
+    if(!exs.length) continue;
+    html += `<div class="grp-h">${g}</div><div class="grp-card">`;
+    for(const ex of exs){
+      html += `
+        <div class="exr">
+          <span>${esc(ex.name)}</span>
+          <div class="row-actions">
+            <button class="icon-btn sm" data-edit="${ex.id}">✏️</button>
+            <button class="icon-btn sm del" data-del="${ex.id}">🗑️</button>
+          </div>
+        </div>`;
+    }
+    html += `</div>`;
+  }
+  if(!html) html = `<div class="empty" style="padding:36px 24px"><div class="big">🔍</div><h3>Nic nenalezeno</h3><p>Žádný cvik neodpovídá „${esc(exSearch.trim())}". Zkus jiný název, nebo si ho přidej tlačítkem nahoře.</p></div>`;
+  return html;
+}
+function bindExList(scope){
+  scope.querySelectorAll("[data-edit]").forEach(b =>
+    b.addEventListener("click", () => openExerciseSheet(b.dataset.edit)));
+  scope.querySelectorAll("[data-del]").forEach(b =>
+    b.addEventListener("click", () => deleteExercise(b.dataset.del)));
+}
+function renderExercises(){
+  $header.innerHTML = "";
+  let html = `
+    <div class="sec-head">
+      <h2>Cviky</h2>
+      <button class="add-btn" id="addEx">＋ Přidat cvik</button>
+    </div>`;
+
+  if(state.exercises.length === 0){
+    html += `
+      <div class="empty">
+        <div class="big">💪</div>
+        <h3>Žádné cviky</h3>
+        <p>Přidej svůj první cvik a zařaď ho do partie.</p>
+      </div>`;
+    $main.innerHTML = html;
+    document.getElementById("addEx").addEventListener("click", () => openExerciseSheet(null));
+    return;
+  }
+
+  html += `
+    <div class="pick-search" style="margin-bottom:6px">
+      <input type="text" id="ex-search" placeholder="Hledat cvik…" value="${esc(exSearch)}" maxlength="60">
+    </div>
+    <div id="ex-list">${exListHTML()}</div>`;
+  $main.innerHTML = html;
+
+  document.getElementById("addEx").addEventListener("click", () => openExerciseSheet(null));
+  /* psaní filtruje seznam bez překreslení pole, aby neztrácelo fokus */
+  document.getElementById("ex-search").addEventListener("input", e => {
+    exSearch = e.target.value;
+    const list = document.getElementById("ex-list");
+    list.innerHTML = exListHTML();
+    bindExList(list);
+  });
+  bindExList(document.getElementById("ex-list"));
+}
+
+function deleteExercise(id){
+  const ex = exById(id);
+  if(!ex) return;
+  if(!confirm(`Smazat cvik „${ex.name}"? Odebere se i ze všech plánů.`)) return;
+  state.exercises = state.exercises.filter(e=>e.id!==id);
+  for(const p of state.plans){
+    if(p.schedule) for(const d in p.schedule) p.schedule[d] = p.schedule[d].filter(en => en.exId !== id);
+  }
+  delete state.daily.progress[id];
+  save(); render();
+  toast("Cvik smazán");
+}
+
+/* ---------- Plány ---------- */
+function renderPlans(){
+  $header.innerHTML = "";
+  let html = `
+    <div class="sec-head">
+      <h2>Plány</h2>
+      <button class="add-btn" id="addPlan">＋ Nový plán</button>
+    </div>`;
+
+  if(state.plans.length === 0){
+    html += `
+      <div class="empty">
+        <div class="big">📅</div>
+        <h3>Žádné plány</h3>
+        <p>Vytvoř plán na celý týden — do každého dne si přidáš cviky a nastavíš série, váhu i opakování.</p>
+      </div>`;
+  }else{
+    for(const p of state.plans){
+      const isActive = state.activePlanId === p.id;
+      const chips = DAYS_ORDER.map(d =>
+        `<span class="chip ${entriesOf(p, d).length ? "on" : ""}">${DAYS[d]}</span>`).join("");
+      const uniq = new Set();
+      for(const d of DAYS_ORDER) for(const en of entriesOf(p, d)) uniq.add(en.exId);
+      const n = uniq.size;
+      html += `
+        <div class="row" style="flex-direction:column;align-items:stretch${isActive ? ";border-color:rgba(61,220,151,.4)" : ""}">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <div class="row-info">
+              <div class="row-name">${esc(p.name)}</div>
+              <div class="row-sub">${n} ${plural(n,"cvik","cviky","cviků")}</div>
+            </div>
+            <div class="row-actions">
+              <button class="icon-btn" data-dup="${p.id}" aria-label="Duplikovat plán">📋</button>
+              <button class="icon-btn" data-edit="${p.id}">✏️</button>
+              <button class="icon-btn del" data-del="${p.id}">🗑️</button>
+            </div>
+          </div>
+          <div class="day-chips">${chips}</div>
+          <button class="act-btn ${isActive?"on":""}" data-act="${p.id}">${isActive ? "✓ Aktivní plán" : "Nastavit jako aktivní"}</button>
+        </div>`;
+    }
+  }
+  $main.innerHTML = html;
+
+  document.getElementById("addPlan").addEventListener("click", () => openPlanSheet(null));
+  $main.querySelectorAll("[data-edit]").forEach(b =>
+    b.addEventListener("click", () => openPlanSheet(b.dataset.edit)));
+  $main.querySelectorAll("[data-del]").forEach(b =>
+    b.addEventListener("click", () => {
+      const p = state.plans.find(x=>x.id===b.dataset.del);
+      if(p && confirm(`Smazat plán „${p.name}"?`)){
+        state.plans = state.plans.filter(x=>x.id!==p.id);
+        if(state.activePlanId === p.id) state.activePlanId = null;
+        if(state.daily.manualPlanId === p.id){ state.daily.manualPlanId = null; state.daily.manualDay = null; }
+        save(); render();
+        toast("Plán smazán");
+      }
+    }));
+  $main.querySelectorAll("[data-dup]").forEach(b =>
+    b.addEventListener("click", () => {
+      const p = state.plans.find(x => x.id === b.dataset.dup);
+      if(!p) return;
+      const copy = JSON.parse(JSON.stringify(p));
+      copy.id = uid();
+      copy.name = p.name + " (kopie)";
+      state.plans.push(copy);
+      save(); render();
+      toast("Plán zduplikován");
+    }));
+  $main.querySelectorAll("[data-act]").forEach(b =>
+    b.addEventListener("click", () => {
+      const id = b.dataset.act;
+      if(state.activePlanId === id){
+        state.activePlanId = null;
+        toast("Aktivní plán zrušen");
+      }else{
+        state.activePlanId = id;
+        toast("Plán nastaven jako aktivní");
+      }
+      save(); render();
+    }));
+}
+
+/* ---------- Přehled ---------- */
+let chartExId = null, rmExId = null;
+
+function calendarHTML(){
+  const done = new Set(state.completedDays);
+  const today = new Date(); today.setHours(0,0,0,0);
+  const start = new Date(today);
+  const dowMon = (today.getDay()+6)%7; // 0 = pondělí
+  start.setDate(today.getDate() - dowMon - 7*7); // 8 týdnů zpět, od pondělí
+  let cells = DAYS_ORDER.map(d => `<div class="cal-dow">${DAYS[d]}</div>`).join("");
+  const d = new Date(start);
+  for(let i=0;i<56;i++){
+    const ds = dateStr(d);
+    const hasS = !!state.sessions[ds];
+    cells += `<div class="cal-cell ${done.has(ds)?"on":""} ${ds===todayStr()?"today":""} ${d>today?"future":""} ${hasS?"has":""}" ${hasS?`data-cal="${ds}"`:""}></div>`;
+    d.setDate(d.getDate()+1);
+  }
+  return cells;
+}
+
+function chartData(exId){
+  const pts = [];
+  for(const ds of Object.keys(state.history).sort()){
+    const w = state.history[ds][exId];
+    if(w != null) pts.push({ ds, w });
+  }
+  return pts;
+}
+
+function chartSVG(pts){
+  if(pts.length === 0) return "";
+  const W = 320, H = 150, P = 26;
+  const ws = pts.map(p => p.w);
+  let min = Math.min(...ws), max = Math.max(...ws);
+  if(min === max){ min -= 1; max += 1; }
+  const x = i => pts.length === 1 ? W/2 : P + (W-2*P) * i / (pts.length-1);
+  const y = w => H - P - (H-2*P) * (w - min) / (max - min);
+  const line = pts.map((p,i) => `${x(i).toFixed(1)},${y(p.w).toFixed(1)}`).join(" ");
+  const dots = pts.map((p,i) =>
+    `<circle cx="${x(i).toFixed(1)}" cy="${y(p.w).toFixed(1)}" r="4" fill="#3DDC97"/>`).join("");
+  const fmt = ds => { const p = ds.split("-"); return +p[2]+"."+(+p[1])+"."; };
+  const last = pts[pts.length-1];
+  return `
+    <svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+      ${pts.length > 1 ? `<polyline points="${line}" fill="none" stroke="#3DDC97" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>` : ""}
+      ${dots}
+      <text x="${P}" y="14" font-size="11" font-weight="700" fill="#8B93A5">max ${Math.max(...ws)} kg</text>
+      <text x="${P}" y="${H-6}" font-size="11" font-weight="700" fill="#8B93A5">${fmt(pts[0].ds)}</text>
+      <text x="${W-P}" y="${H-6}" font-size="11" font-weight="700" fill="#8B93A5" text-anchor="end">${fmt(last.ds)} · ${last.w} kg</text>
+    </svg>`;
+}
+
+/* ---------- sloupcové grafy ---------- */
+let statView = null;
+const fmtDate = ds => { const p = ds.split("-"); return (+p[2])+". "+(+p[1])+". "+p[0]; };
+
+function weekBars(){
+  const done = new Set(state.completedDays);
+  const today = new Date(); today.setHours(0,0,0,0);
+  const d = new Date(today);
+  d.setDate(today.getDate() - ((today.getDay()+6)%7) - 7*7);
+  const bars = [];
+  for(let w=0; w<8; w++){
+    const label = d.getDate()+"."+(d.getMonth()+1)+".";
+    let n = 0;
+    for(let i=0;i<7;i++){ if(done.has(dateStr(d))) n++; d.setDate(d.getDate()+1); }
+    bars.push({ label, v: n });
+  }
+  return bars;
+}
+function waterBars(){
+  const bars = [];
+  const d = new Date(); d.setDate(d.getDate()-13);
+  for(let i=0;i<14;i++){
+    bars.push({ label: d.getDate()+"."+(d.getMonth()+1)+".", v: state.water[dateStr(d)] || 0 });
+    d.setDate(d.getDate()+1);
+  }
+  return bars;
+}
+function barSVG(bars, opts = {}){
+  const W = 320, H = 150, P = 26;
+  const m = Math.max(opts.max || 0, opts.goal || 0, ...bars.map(b=>b.v), 1);
+  const iw = (W - 2*P) / bars.length;
+  const bw = iw * 0.62;
+  const y = v => H - P - (H - 2*P - 16) * v / m;
+  let rects = "", labels = "";
+  bars.forEach((b, i) => {
+    const x = P + iw*i + (iw-bw)/2;
+    const yy = y(b.v);
+    const fill = opts.goal != null ? (b.v >= opts.goal ? "#3DDC97" : "#FF7A3D") : "#3DDC97";
+    if(b.v > 0){
+      rects += `<rect x="${x.toFixed(1)}" y="${yy.toFixed(1)}" width="${bw.toFixed(1)}" height="${(H-P-yy).toFixed(1)}" rx="3" fill="${fill}"/>`;
+      if(bars.length <= 8)
+        labels += `<text x="${(x+bw/2).toFixed(1)}" y="${(yy-4).toFixed(1)}" font-size="10" font-weight="700" fill="#8B93A5" text-anchor="middle">${opts.fmt ? opts.fmt(b.v) : b.v}</text>`;
+    }else{
+      rects += `<rect x="${x.toFixed(1)}" y="${H-P-2}" width="${bw.toFixed(1)}" height="2" rx="1" fill="#2B3342"/>`;
+    }
+  });
+  let goalLine = "";
+  if(opts.goal != null){
+    const gy = y(opts.goal);
+    goalLine = `<line x1="${P}" x2="${W-P}" y1="${gy.toFixed(1)}" y2="${gy.toFixed(1)}" stroke="#8B93A5" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+  }
+  return `
+    <svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+      ${rects}${goalLine}${labels}
+      <text x="${P}" y="${H-6}" font-size="11" font-weight="700" fill="#8B93A5">${bars[0].label}</text>
+      <text x="${W-P}" y="${H-6}" font-size="11" font-weight="700" fill="#8B93A5" text-anchor="end">${bars[bars.length-1].label}</text>
+    </svg>`;
+}
+
+
+function volumeBars(){
+  const today = new Date(); today.setHours(0,0,0,0);
+  const d = new Date(today);
+  d.setDate(today.getDate() - ((today.getDay()+6)%7) - 7*7);
+  const bars = [];
+  for(let w=0; w<8; w++){
+    const label = d.getDate()+"."+(d.getMonth()+1)+".";
+    let v = 0;
+    for(let i=0;i<7;i++){
+      const s = state.sessions[dateStr(d)];
+      if(s) v += sessionVolume(s);
+      d.setDate(d.getDate()+1);
+    }
+    bars.push({ label, v: Math.round(v) });
+  }
+  return bars;
+}
+function rmSeries(exId){
+  const pts = [];
+  for(const ds of Object.keys(state.sessions).sort()){
+    const rec = state.sessions[ds].ex[exId];
+    if(!rec) continue;
+    const v = best1RM(rec.sets.filter(Boolean));
+    if(v > 0) pts.push({ ds, w: Math.round(v*10)/10 });
+  }
+  return pts;
+}
+function groupDistribution(days){
+  const since = new Date(); since.setDate(since.getDate() - days);
+  const sinceS = dateStr(since);
+  const counts = {};
+  for(const ds of Object.keys(state.sessions)){
+    if(ds < sinceS) continue;
+    const s = state.sessions[ds];
+    for(const id in s.ex){
+      const ex = exById(id);
+      const g = ex ? (ex.group || "Ostatní") : "Ostatní";
+      counts[g] = (counts[g] || 0) + s.ex[id].sets.filter(Boolean).length;
+    }
+  }
+  return Object.entries(counts).sort((a,b) => b[1]-a[1]);
+}
+function distHTML(rows){
+  if(!rows.length) return `<p class="hint" style="margin:0">Zatím žádné odcvičené série za posledních 30 dní.</p>`;
+  const max = rows[0][1];
+  return rows.map(([g,n]) => `
+    <div class="dist-row">
+      <span class="dn">${g}</span>
+      <span class="db"><i style="width:${Math.round(n/max*100)}%"></i></span>
+      <span class="dv">${n}</span>
+    </div>`).join("") + `<p class="hint">Počet odcvičených sérií podle partie za posledních 30 dní.</p>`;
+}
+function openSessionSheet(ds){
+  const s = state.sessions[ds];
+  if(!s) return;
+  const rows = Object.keys(s.ex).map(id => {
+    const rec = s.ex[id];
+    const done = rec.sets.filter(Boolean);
+    const ex = exById(id);
+    return `<div class="sess-ex"><b>${esc(ex ? ex.name : rec.name)}</b><span>${summarizeSets(done)}</span></div>`;
+  }).join("");
+  const vol = sessionVolume(s);
+  openSheet(`
+    <h3 style="margin-bottom:4px">${fmtDate(ds)}</h3>
+    <p class="hint" style="margin:0 0 16px">${esc(s.planName || "")}${s.day != null ? " · " + DAY_FULL[s.day] : ""}${vol ? " · objem " + fmtVol(vol) : ""}</p>
+    ${rows || `<p class="hint">Žádné odcvičené série.</p>`}
+    <div class="sheet-actions">
+      <button class="btn primary" id="sess-close">Zavřít</button>
+    </div>
+  `);
+  document.getElementById("sess-close").addEventListener("click", closeSheet);
+}
+
+function renderOverview(){
+  $header.innerHTML = `
+    <div class="h-title">
+      <span class="h-eyebrow">Statistiky a nastavení</span>
+      <span class="h-day">Přehled</span>
+    </div>`;
+
+  const streak = computeStreak();
+  const totalDays = state.completedDays.length;
+
+  /* cviky se zaznamenanou váhou */
+  const histIds = new Set();
+  for(const ds in state.history) for(const id in state.history[ds]) if(exById(id)) histIds.add(id);
+  const histExs = state.exercises.filter(e => histIds.has(e.id));
+  if(!chartExId || !histIds.has(chartExId)) chartExId = histExs.length ? histExs[0].id : null;
+
+  const bwKeys = Object.keys(state.bodyWeight).sort();
+  const bwLastKey = bwKeys[bwKeys.length-1];
+  const bwToday = state.bodyWeight[todayStr()];
+  const waterToday = state.water[todayStr()] || 0;
+  const rt = state.settings.restTimer;
+
+  /* obsah jednotlivých rozklikávacích sekcí */
+  function bodyFor(k){
+    if(k === "ex"){
+      const pts = chartExId ? chartData(chartExId) : [];
+      return histExs.length ? `
+        <div class="chip-scroll">${histExs.map(e =>
+          `<button class="daybtn ${e.id === chartExId ? "today" : ""}" data-chart="${e.id}">${esc(e.name)}</button>`).join("")}</div>
+        <div class="chart-wrap">${chartSVG(pts)}</div>
+        ${pts.length === 1 ? `<p class="hint">Zatím jeden záznam — graf se vykreslí, jak budeš cvičit dál.</p>` : ""}`
+      : `<p class="hint" style="margin:0">Zatím žádná data. Váha cviku se zaznamená vždy, když odškrtneš sérii u cviku s nastavenou váhou.</p>`;
+    }
+    if(k === "body"){
+      const pts = bwKeys.map(ds => ({ ds, w: state.bodyWeight[ds] }));
+      return `
+        <div class="set-row" style="margin-bottom:${pts.length?"16px":"0"}">
+          <div class="mini-in" style="flex:1">
+            <label>Dnes (kg)</label>
+            <input id="bw-in" type="text" inputmode="decimal" style="width:100%" value="${bwToday != null ? bwToday : ""}" placeholder="${bwLastKey ? state.bodyWeight[bwLastKey] : "např. 80"}" maxlength="7">
+          </div>
+          <button class="btn primary" id="bw-save" style="flex:0 0 104px;padding:12px 0;font-size:14.5px">Zapsat</button>
+        </div>
+        ${pts.length ? `<div class="chart-wrap">${chartSVG(pts)}</div>` : `<p class="hint" style="margin:8px 0 0">Zapiš první váhu — graf se objeví, jakmile budeš mít záznamy.</p>`}
+        ${pts.length === 1 ? `<p class="hint">Zatím jeden záznam — zapisuj dál a křivka poroste.</p>` : ""}`;
+    }
+    if(k === "water"){
+      return `<div class="chart-wrap">${barSVG(waterBars(), { goal: state.settings.waterGoal, fmt: v => fmtL(v) })}</div>
+        <p class="hint">Posledních 14 dní v litrech. Čárkovaná linka je denní cíl (${fmtL(state.settings.waterGoal)} l).</p>`;
+    }
+    if(k === "week"){
+      return `<div class="chart-wrap">${barSVG(weekBars(), { max: 7 })}</div>
+        <p class="hint">Počet odcvičených dnů v jednotlivých týdnech (posledních 8).</p>`;
+    }
+    if(k === "vol"){
+      const bars = volumeBars();
+      return bars.some(b => b.v) ? `
+        <div class="chart-wrap">${barSVG(bars, { fmt: v => fmtVol(v) })}</div>
+        <p class="hint">Celkový zvednutý objem (série × opakování × váha) po týdnech.</p>`
+      : `<p class="hint" style="margin:0">Zatím žádná data — objem se počítá z odcvičených sérií, které mají vyplněnou váhu a opakování.</p>`;
+    }
+    if(k === "rm"){
+      const rmExs = state.exercises.filter(e => rmSeries(e.id).length);
+      if(!rmExs.length) return `<p class="hint" style="margin:0">Zatím žádná data. Odhad maxima se počítá z váhy a opakování odcvičených sérií.</p>`;
+      if(!rmExId || !rmExs.some(e => e.id === rmExId)) rmExId = rmExs[0].id;
+      const pts = rmSeries(rmExId);
+      return `
+        <div class="chip-scroll">${rmExs.map(e =>
+          `<button class="daybtn ${e.id === rmExId ? "today" : ""}" data-rm="${e.id}">${esc(e.name)}</button>`).join("")}</div>
+        <div class="chart-wrap">${chartSVG(pts)}</div>
+        <p class="hint">Odhad maxima na 1 opakování (Epleyho vzorec) — nemusíš ho nikdy zkoušet naostro.</p>`;
+    }
+    if(k === "dist"){
+      return distHTML(groupDistribution(30));
+    }
+    if(k === "cal"){
+      return `<div class="cal-grid">${calendarHTML()}</div>
+        <p class="hint">Zeleně odcvičené dny, oranžový rámeček je dnešek. Na den se záznamem klepni a uvidíš, co jsi cvičil.</p>`;
+    }
+    if(k === "set"){
+      return `
+        <div class="set-row">
+          <div>
+            <div class="lbl2">⏱️ Výchozí pauza</div>
+            <div class="sub2">Každý plán si může nastavit vlastní</div>
+          </div>
+          <div class="mini-step">
+            <button id="rt-dec">−</button>
+            <b style="min-width:64px">${rt ? Math.floor(rt/60)+":"+String(rt%60).padStart(2,"0") : "Vyp."}</b>
+            <button id="rt-inc">＋</button>
+          </div>
+        </div>
+        <div class="set-row" style="margin-top:16px">
+          <div>
+            <div class="lbl2">💧 Denní cíl vody</div>
+            <div class="sub2">Zapisuješ ikonkou na hlavní obrazovce</div>
+          </div>
+          <div class="mini-step">
+            <button id="wg-dec">−</button>
+            <b style="min-width:64px">${fmtL(state.settings.waterGoal)} l</b>
+            <button id="wg-inc">＋</button>
+          </div>
+        </div>
+        <div class="set-row" style="margin-top:16px">
+          <div>
+            <div class="lbl2">📲 Aplikace na ploše</div>
+            <div class="sub2">${isStandalone()
+              ? "Běží jako nainstalovaná aplikace ✓"
+              : (installPrompt ? "Přidej si ji mezi ostatní appky" : "Otevři přes webovou adresu (https)")}</div>
+          </div>
+          ${installPrompt ? `<button class="btn primary" id="do-install" style="flex:0 0 116px;padding:12px 0;font-size:14.5px">Instalovat</button>` : ""}
+        </div>`;
+    }
+    if(k === "backup"){
+      return `
+        <p class="hint" style="margin:0 0 12px">Data žijí jen v tomhle prohlížeči. Občas si je ulož do souboru — kdyby se promazala, načteš je zpátky.</p>
+        <div class="backup-btns">
+          <button class="btn ghost" id="do-import">Načíst zálohu</button>
+          <button class="btn primary" id="do-export">Exportovat</button>
+        </div>`;
+    }
+    return "";
+  }
+
+  const sessCount = Object.keys(state.sessions).length;
+  let volWeek = 0;
+  { const d = new Date(); d.setDate(d.getDate()-6);
+    for(let i=0;i<7;i++){ const s = state.sessions[dateStr(d)]; if(s) volWeek += sessionVolume(s); d.setDate(d.getDate()+1); } }
+
+  const SECTIONS = [
+    ["ex",    "🏋️ Progres vah",   histExs.length ? histExs.length + " " + plural(histExs.length,"cvik","cviky","cviků") : "—"],
+    ["vol",   "📦 Objem tréninku", volWeek ? fmtVol(volWeek) + " / týden" : "—"],
+    ["rm",    "🥇 Odhad maxima",  sessCount ? "1RM" : "—"],
+    ["dist",  "🎯 Rozložení partií", "30 dní"],
+    ["body",  "⚖️ Tělesná váha",  bwLastKey ? state.bodyWeight[bwLastKey] + " kg" : "—"],
+    ["water", "💧 Hydratace",     fmtL(waterToday) + " l dnes"],
+    ["week",  "📅 Tréninkové týdny", totalDays + " celkem"],
+    ["cal",   "🗓️ Deník tréninků", sessCount ? sessCount + " " + plural(sessCount,"záznam","záznamy","záznamů") : "—"],
+    ["set",   "⚙️ Nastavení",     ""],
+    ["backup","💾 Záloha dat",    ""]
+  ];
+
+  const secHTML = SECTIONS.map(([k, title, val]) => `
+    <div class="sec ${statView === k ? "open" : ""}">
+      <button class="sec-btn" data-sec="${k}">
+        <span class="t">${title}</span>
+        <span class="v">${val}<span class="arw">▾</span></span>
+      </button>
+      ${statView === k ? `<div class="sec-body">${bodyFor(k)}</div>` : ""}
+    </div>`).join("");
+
+  /* připomínka zálohy — data v prohlížeči se dají snadno ztratit */
+  let nudge = "";
+  if(installPrompt && !isStandalone()){
+    nudge += `
+      <div class="nudge">
+        <span>📲 Aplikaci můžeš přidat na plochu telefonu.</span>
+        <button id="nudge-inst">Instalovat</button>
+      </div>`;
+  }
+  const hasData = sessCount > 0 || state.plans.length > 0;
+  if(hasData){
+    const daysSince = state.lastBackup
+      ? Math.round((new Date(todayStr()) - new Date(state.lastBackup)) / 86400000)
+      : null;
+    if(daysSince === null || daysSince >= 21){
+      nudge += `
+        <div class="nudge">
+          <span>💾 ${daysSince === null ? "Data ještě nemáš nikde zálohovaná." : "Poslední záloha před " + daysSince + " dny."}</span>
+          <button id="nudge-exp">Zálohovat</button>
+        </div>`;
+    }
+  }
+
+  $main.innerHTML = `
+    <div class="stat-grid" style="margin-top:4px">
+      <div class="stat"><div class="num">🔥 ${streak}</div><div class="lbl">dnů v řadě</div></div>
+      <div class="stat"><div class="num">${totalDays}</div><div class="lbl">celkem odcvičeno</div></div>
+    </div>
+    ${nudge}
+    ${secHTML}`;
+
+  const nb = document.getElementById("nudge-exp");
+  if(nb) nb.addEventListener("click", exportBackup);
+  const ni = document.getElementById("nudge-inst");
+  if(ni) ni.addEventListener("click", doInstall);
+
+  $main.querySelectorAll("[data-sec]").forEach(b =>
+    b.addEventListener("click", () => {
+      statView = statView === b.dataset.sec ? null : b.dataset.sec;
+      render();
+    }));
+  $main.querySelectorAll("[data-chart]").forEach(b =>
+    b.addEventListener("click", () => { chartExId = b.dataset.chart; render(); }));
+  $main.querySelectorAll("[data-rm]").forEach(b =>
+    b.addEventListener("click", () => { rmExId = b.dataset.rm; render(); }));
+  $main.querySelectorAll("[data-cal]").forEach(b =>
+    b.addEventListener("click", () => openSessionSheet(b.dataset.cal)));
+
+  const bwBtn = document.getElementById("bw-save");
+  if(bwBtn) bwBtn.addEventListener("click", () => {
+    const raw = document.getElementById("bw-in").value.trim().replace(",", ".");
+    const v = parseFloat(raw);
+    if(raw === "" || isNaN(v) || v <= 0 || v > 400){ toast("Zadej platnou váhu v kg"); return; }
+    state.bodyWeight[todayStr()] = Math.round(v*10)/10;
+    save(); render();
+    toast("Váha zapsána");
+  });
+
+  const rtd = document.getElementById("rt-dec");
+  if(rtd){
+    rtd.addEventListener("click", () => {
+      state.settings.restTimer = Math.max(0, state.settings.restTimer - 15); save(); render();
+    });
+    document.getElementById("rt-inc").addEventListener("click", () => {
+      state.settings.restTimer = Math.min(300, state.settings.restTimer + 15); save(); render();
+    });
+    document.getElementById("wg-dec").addEventListener("click", () => {
+      state.settings.waterGoal = Math.max(500, state.settings.waterGoal - 250); save(); render();
+    });
+    document.getElementById("wg-inc").addEventListener("click", () => {
+      state.settings.waterGoal = Math.min(5000, state.settings.waterGoal + 250); save(); render();
+    });
+  }
+
+  const inst = document.getElementById("do-install");
+  if(inst) inst.addEventListener("click", doInstall);
+
+  const exp = document.getElementById("do-export");
+  if(exp){
+    exp.addEventListener("click", exportBackup);
+    document.getElementById("do-import").addEventListener("click", () =>
+      document.getElementById("import-file").click());
+  }
+}
+
+/* ---------- záloha ---------- */
+function exportBackup(){
+  const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "trenink-zaloha-" + todayStr() + ".json";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  state.lastBackup = todayStr(); save();
+  toast("Záloha stažena");
+}
+document.getElementById("import-file").addEventListener("change", e => {
+  const file = e.target.files[0];
+  e.target.value = "";
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try{
+      const parsed = JSON.parse(reader.result);
+      if(!parsed || !Array.isArray(parsed.exercises) || !Array.isArray(parsed.plans)){
+        toast("Tohle nevypadá jako záloha aplikace"); return;
+      }
+      if(!confirm("Načíst zálohu? Nahradí všechna aktuální data v aplikaci.")) return;
+      localStorage.setItem(KEY, reader.result);
+      state = load();
+      render();
+      toast("Záloha načtena");
+    }catch(err){ toast("Soubor se nepodařilo přečíst"); }
+  };
+  reader.readAsText(file);
+});
+
+/* ---------- odpočinkový timer ---------- */
+let restInt = null, restEnd = 0, restTotal = 0, wakeLock = null;
+async function keepAwake(on){
+  try{
+    if(on && "wakeLock" in navigator && !wakeLock){
+      wakeLock = await navigator.wakeLock.request("screen");
+      wakeLock.addEventListener("release", () => { wakeLock = null; });
+    }else if(!on && wakeLock){
+      await wakeLock.release(); wakeLock = null;
+    }
+  }catch(e){ wakeLock = null; }
+}
+function startRest(dur){
+  if(!dur){ stopRest(); return; }
+  restTotal = dur;
+  restEnd = Date.now() + dur * 1000;
+  document.getElementById("restbar").classList.add("show");
+  clearInterval(restInt);
+  keepAwake(true);
+  tickRest();
+  restInt = setInterval(tickRest, 250);
+}
+function stopRest(){
+  clearInterval(restInt); restInt = null;
+  document.getElementById("restbar").classList.remove("show");
+  keepAwake(false);
+}
+function tickRest(){
+  const left = Math.max(0, restEnd - Date.now());
+  const s = Math.ceil(left / 1000);
+  document.getElementById("rest-time").textContent = Math.floor(s/60) + ":" + String(s%60).padStart(2,"0");
+  document.getElementById("rest-fill").style.width = (100 * (1 - left / (restTotal * 1000))) + "%";
+  if(left <= 0){ stopRest(); buzz(); toast("Pauza skončila — jedeme dál! 💪"); }
+}
+function buzz(){
+  if(navigator.vibrate) navigator.vibrate([200, 100, 200]);
+  try{
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    o.connect(g); g.connect(ctx.destination);
+    o.type = "sine"; o.frequency.value = 880; g.gain.value = 0.15;
+    o.start(); o.stop(ctx.currentTime + 0.35);
+    setTimeout(() => ctx.close(), 600);
+  }catch(e){}
+}
+document.getElementById("rest-skip").addEventListener("click", stopRest);
+
+/* ================= bottom sheets ================= */
+const $overlay = document.getElementById("overlay");
+const $sheet = document.getElementById("sheet");
+
+function openSheet(html){
+  $sheet.innerHTML = `<div class="grabber"></div>` + html;
+  $overlay.classList.add("show");
+  requestAnimationFrame(() => $sheet.classList.add("show"));
+}
+function closeSheet(){
+  $sheet.classList.remove("show");
+  $overlay.classList.remove("show");
+}
+$overlay.addEventListener("click", closeSheet);
+
+/* --- cvik: jen název a partie --- */
+function openExerciseSheet(id){
+  const ex = id ? exById(id) : null;
+  let group = ex ? (ex.group || "Ostatní") : GROUPS[0];
+
+  const grpBtns = () => GROUPS.map(g =>
+    `<button data-grp="${g}" class="${g === group ? "on" : ""}">${g}</button>`).join("");
+
+  openSheet(`
+    <h3>${ex ? "Upravit cvik" : "Nový cvik"}</h3>
+    <div class="field">
+      <label>Název cviku</label>
+      <input type="text" id="f-name" placeholder="např. Dřepy" value="${ex ? esc(ex.name) : ""}" maxlength="60">
+    </div>
+    <div class="field">
+      <label>Partie</label>
+      <div class="grp-pick" id="f-grp">${grpBtns()}</div>
+    </div>
+    <div class="sheet-actions">
+      <button class="btn ghost" id="s-cancel">Zrušit</button>
+      <button class="btn primary" id="s-save">Uložit</button>
+    </div>
+  `);
+
+  const $grp = document.getElementById("f-grp");
+  $grp.querySelectorAll("button").forEach(b =>
+    b.addEventListener("click", () => {
+      group = b.dataset.grp;
+      $grp.querySelectorAll("button").forEach(x => x.classList.toggle("on", x.dataset.grp === group));
+    }));
+
+  document.getElementById("s-cancel").addEventListener("click", closeSheet);
+  document.getElementById("s-save").addEventListener("click", ()=>{
+    const name = document.getElementById("f-name").value.trim();
+    if(!name){ toast("Zadej název cviku"); return; }
+    if(ex){
+      ex.name = name; ex.group = group;
+      toast("Cvik upraven");
+    }else{
+      state.exercises.push({ id: uid(), name, group });
+      toast("Cvik přidán");
+    }
+    save(); closeSheet(); render();
+  });
+}
+
+/* --- rychlá úprava série/váha/opakování z hlavní obrazovky --- */
+function openEntrySheet(plan, day, exId){
+  const entry = (plan.schedule[day] || []).find(en => en.exId === exId);
+  const ex = exById(exId);
+  if(!entry || !ex) return;
+  let sets = entry.sets;
+
+  openSheet(`
+    <h3>${esc(ex.name)} · ${DAY_FULL[day]}</h3>
+    <div class="field">
+      <label>Počet sérií</label>
+      <div class="stepper">
+        <button id="s-minus">−</button>
+        <div class="val" id="s-val">${sets}</div>
+        <button id="s-plus">＋</button>
+      </div>
+    </div>
+    <div class="field">
+      <label>Váha (kg, nepovinné)</label>
+      <input type="text" id="f-weight" inputmode="decimal" placeholder="např. 40" value="${entry.weight != null ? entry.weight : ""}" maxlength="7">
+    </div>
+    <div class="field">
+      <label>Opakování (nepovinné)</label>
+      <input type="text" id="f-reps" placeholder="např. 12 nebo 8–10" value="${entry.reps ? esc(entry.reps) : ""}" maxlength="20">
+    </div>
+    <div class="sheet-actions">
+      <button class="btn ghost" id="s-cancel">Zrušit</button>
+      <button class="btn primary" id="s-save">Uložit</button>
+    </div>
+  `);
+
+  const $val = document.getElementById("s-val");
+  document.getElementById("s-minus").addEventListener("click", ()=>{ if(sets>1){sets--; $val.textContent=sets;} });
+  document.getElementById("s-plus").addEventListener("click", ()=>{ if(sets<20){sets++; $val.textContent=sets;} });
+  document.getElementById("s-cancel").addEventListener("click", closeSheet);
+  document.getElementById("s-save").addEventListener("click", ()=>{
+    const wRaw = document.getElementById("f-weight").value.trim().replace(",", ".");
+    entry.sets = sets;
+    entry.weight = wRaw !== "" && !isNaN(parseFloat(wRaw)) ? parseFloat(wRaw) : null;
+    entry.reps = document.getElementById("f-reps").value.trim();
+    save(); closeSheet(); render();
+    toast("Uloženo");
+  });
+}
+
+/* --- plán: týden po dnech, v každém dni cviky se sériemi, váhou a opakováními --- */
+function openPlanSheet(id){
+  const plan = id ? state.plans.find(p=>p.id===id) : null;
+  const schedule = {};
+  for(const d of DAYS_ORDER){
+    schedule[d] = plan && plan.schedule && plan.schedule[d]
+      ? plan.schedule[d].map(en => ({...en}))
+      : [];
+  }
+  let openDay = null;
+  let pickingDay = null; // den, ve kterém je otevřený výběr cviku
+  let pickText = "";     // text ve vyhledávání / vlastním cviku
+  let pickGroup = "Ostatní"; // partie pro nově vytvářený cvik
+  let restT = plan && plan.restTimer != null ? plan.restTimer : state.settings.restTimer;
+  const fmtT = s => s ? Math.floor(s/60)+":"+String(s%60).padStart(2,"0") : "Vyp.";
+
+  function entryRow(d, en){
+    const ex = exById(en.exId);
+    if(!ex) return "";
+    return `
+      <div class="entry" data-day="${d}" data-ex="${en.exId}">
+        <div class="entry-top">
+          <span>${esc(ex.name)}</span>
+          <div style="display:flex;align-items:center;gap:2px;flex:none">
+            <button class="icon-btn sm" data-up data-day="${d}" data-ex="${en.exId}" aria-label="Posunout nahoru">▲</button>
+            <button class="icon-btn sm" data-down data-day="${d}" data-ex="${en.exId}" aria-label="Posunout dolů">▼</button>
+            <button class="entry-rm" data-rm data-day="${d}" data-ex="${en.exId}" aria-label="Odebrat cvik">✕</button>
+          </div>
+        </div>
+        <div class="entry-ctrl">
+          <div class="mini-step">
+            <button data-dec data-day="${d}" data-ex="${en.exId}">−</button>
+            <b>${en.sets}<small>sérií</small></b>
+            <button data-inc data-day="${d}" data-ex="${en.exId}">＋</button>
+          </div>
+          <div class="mini-in">
+            <label>Váha kg</label>
+            <input type="text" inputmode="decimal" data-w data-day="${d}" data-ex="${en.exId}" value="${en.weight != null ? en.weight : ""}" maxlength="7" placeholder="—">
+          </div>
+          <div class="mini-in">
+            <label>Opak.</label>
+            <input type="text" data-r data-day="${d}" data-ex="${en.exId}" value="${en.reps ? esc(en.reps) : ""}" maxlength="20" placeholder="—">
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function pickerListHTML(d){
+    const usedIds = new Set(schedule[d].map(en => en.exId));
+    const q = pickText.trim().toLowerCase();
+    let html = "";
+
+    /* vlastní cvik — vytvoří se a rovnou přidá do dne */
+    if(q){
+      const exact = state.exercises.some(e => e.name.toLowerCase() === q);
+      if(!exact){
+        html += `
+          <button class="create-opt" data-create data-day="${d}">
+            <span>＋ Vytvořit „${esc(pickText.trim())}" v partii ${pickGroup}</span>
+          </button>
+          <div class="grp-pick" style="margin:8px 0 2px">${GROUPS.map(g =>
+            `<button data-pgrp="${g}" class="${g === pickGroup ? "on" : ""}">${g}</button>`).join("")}</div>`;
+      }
+    }
+
+    for(const g of GROUPS){
+      const exs = state.exercises.filter(e =>
+        (e.group || "Ostatní") === g &&
+        !usedIds.has(e.id) &&
+        (!q || e.name.toLowerCase().includes(q)));
+      if(!exs.length) continue;
+      html += `<div class="grp-h">${g}</div><div class="pick-ex">` +
+        exs.map(e => `
+          <button class="opt" data-add data-day="${d}" data-ex="${e.id}">
+            <span>${esc(e.name)}</span>
+            <span class="mark">＋</span>
+          </button>`).join("") + `</div>`;
+    }
+    if(!html) html = `<p class="hint" style="margin:4px 0 10px">${q ? "Nic nenalezeno — vytvoř si vlastní cvik tlačítkem výše." : "Všechny cviky už v tomto dni jsou."}</p>`;
+    return html;
+  }
+
+  function pickerFor(d){
+    return `
+      <div class="pick-search">
+        <input type="text" data-search="${d}" placeholder="Hledat nebo napsat vlastní cvik…" value="${esc(pickText)}" maxlength="60">
+      </div>
+      <div data-list="${d}">${pickerListHTML(d)}</div>`;
+  }
+
+  function dayRows(){
+    return DAYS_ORDER.map(d => {
+      const n = schedule[d].filter(en => exById(en.exId)).length;
+      const open = openDay === d;
+      let inner = "";
+      if(open){
+        inner = schedule[d].map(en => entryRow(d, en)).join("");
+        if(pickingDay === d){
+          inner += pickerFor(d);
+          inner += `<button class="add-ex-day" data-closepick="${d}">Hotovo</button>`;
+        }else{
+          inner += `<button class="add-ex-day" data-openpick="${d}">＋ Přidat cvik</button>`;
+        }
+      }
+      return `
+        <div class="day-block ${open?"open":""}">
+          <button class="day-row" data-toggle="${d}">
+            <span>${DAY_FULL[d]}</span>
+            <span class="day-meta ${n?"has":""}">${n ? n+" "+plural(n,"cvik","cviky","cviků") : "volno"} ${open?"▴":"▾"}</span>
+          </button>
+          ${inner}
+        </div>`;
+    }).join("");
+  }
+
+  openSheet(`
+    <h3>${plan ? "Upravit plán" : "Nový plán"}</h3>
+    <div class="field">
+      <label>Název plánu</label>
+      <input type="text" id="p-name" placeholder="např. Objemový týden" value="${plan ? esc(plan.name) : ""}" maxlength="60">
+    </div>
+    <div class="field">
+      <label>⏱️ Pauza mezi sériemi</label>
+      <div class="mini-step" style="width:max-content">
+        <button id="pt-dec">−</button>
+        <b style="min-width:64px" id="pt-val">${fmtT(restT)}</b>
+        <button id="pt-inc">＋</button>
+      </div>
+      <p class="hint">Platí pro tento plán. 0 = bez odpočtu.</p>
+    </div>
+    <div class="field">
+      <label>Týden</label>
+      <div id="p-week">${dayRows()}</div>
+      <p class="hint">Rozklikni den, přidej cviky a u každého nastav série, váhu a opakování. Den bez cviků zůstane jako volno.</p>
+    </div>
+    <div class="sheet-actions">
+      <button class="btn ghost" id="p-cancel">Zrušit</button>
+      <button class="btn primary" id="p-save">Uložit</button>
+    </div>
+  `);
+
+  const $week = document.getElementById("p-week");
+  function findEntry(d, exId){ return schedule[d].find(en => en.exId === exId); }
+  function rerender(){ $week.innerHTML = dayRows(); bind(); }
+
+  function addToDay(d, exId){
+    schedule[d].push({ exId, sets: 3, weight: null, reps: "" });
+    pickText = "";
+    rerender();
+  }
+
+  function bindList(scope){
+    scope.querySelectorAll("[data-pgrp]").forEach(b =>
+      b.addEventListener("click", () => {
+        pickGroup = b.dataset.pgrp;
+        const d = pickingDay;
+        const list = $week.querySelector(`[data-list="${d}"]`);
+        if(list){ list.innerHTML = pickerListHTML(d); bindList(list); }
+      }));
+    scope.querySelectorAll("[data-add]").forEach(b =>
+      b.addEventListener("click", () => addToDay(+b.dataset.day, b.dataset.ex)));
+    scope.querySelectorAll("[data-create]").forEach(b =>
+      b.addEventListener("click", () => {
+        const name = pickText.trim();
+        if(!name) return;
+        const ex = { id: uid(), name, group: pickGroup };
+        state.exercises.push(ex);
+        save();
+        toast(`Cvik „${name}" vytvořen`);
+        addToDay(+b.dataset.day, ex.id);
+      }));
+  }
+
+  function bind(){
+    $week.querySelectorAll("[data-toggle]").forEach(b =>
+      b.addEventListener("click", () => {
+        const d = +b.dataset.toggle;
+        openDay = openDay === d ? null : d;
+        pickingDay = null; pickText = "";
+        rerender();
+      }));
+    $week.querySelectorAll("[data-openpick]").forEach(b =>
+      b.addEventListener("click", () => { pickingDay = +b.dataset.openpick; pickText = ""; rerender(); }));
+    $week.querySelectorAll("[data-closepick]").forEach(b =>
+      b.addEventListener("click", () => { pickingDay = null; pickText = ""; rerender(); }));
+    /* psaní filtruje seznam bez překreslení pole, aby neztrácelo fokus */
+    $week.querySelectorAll("[data-search]").forEach(inp =>
+      inp.addEventListener("input", () => {
+        pickText = inp.value;
+        const d = inp.dataset.search;
+        const list = $week.querySelector(`[data-list="${d}"]`);
+        if(list){ list.innerHTML = pickerListHTML(+d); bindList(list); }
+      }));
+    bindList($week);
+    $week.querySelectorAll("[data-rm]").forEach(b =>
+      b.addEventListener("click", () => {
+        const d = +b.dataset.day;
+        schedule[d] = schedule[d].filter(en => en.exId !== b.dataset.ex);
+        rerender();
+      }));
+    const move = (d, exId, dir) => {
+      const list = schedule[d];
+      const i = list.findIndex(en => en.exId === exId);
+      const j = i + dir;
+      if(i < 0 || j < 0 || j >= list.length) return;
+      [list[i], list[j]] = [list[j], list[i]];
+      rerender();
+    };
+    $week.querySelectorAll("[data-up]").forEach(b =>
+      b.addEventListener("click", () => move(+b.dataset.day, b.dataset.ex, -1)));
+    $week.querySelectorAll("[data-down]").forEach(b =>
+      b.addEventListener("click", () => move(+b.dataset.day, b.dataset.ex, 1)));
+    $week.querySelectorAll("[data-dec]").forEach(b =>
+      b.addEventListener("click", () => {
+        const en = findEntry(+b.dataset.day, b.dataset.ex);
+        if(en && en.sets > 1){ en.sets--; rerender(); }
+      }));
+    $week.querySelectorAll("[data-inc]").forEach(b =>
+      b.addEventListener("click", () => {
+        const en = findEntry(+b.dataset.day, b.dataset.ex);
+        if(en && en.sets < 20){ en.sets++; rerender(); }
+      }));
+    /* váha a opakování se ukládají průběžně bez překreslení, aby psaní neztrácelo fokus */
+    $week.querySelectorAll("[data-w]").forEach(inp =>
+      inp.addEventListener("input", () => {
+        const en = findEntry(+inp.dataset.day, inp.dataset.ex);
+        if(!en) return;
+        const w = inp.value.trim().replace(",", ".");
+        en.weight = w !== "" && !isNaN(parseFloat(w)) ? parseFloat(w) : null;
+      }));
+    $week.querySelectorAll("[data-r]").forEach(inp =>
+      inp.addEventListener("input", () => {
+        const en = findEntry(+inp.dataset.day, inp.dataset.ex);
+        if(en) en.reps = inp.value.trim();
+      }));
+  }
+  bind();
+
+  document.getElementById("pt-dec").addEventListener("click", () => {
+    restT = Math.max(0, restT - 15);
+    document.getElementById("pt-val").textContent = fmtT(restT);
+  });
+  document.getElementById("pt-inc").addEventListener("click", () => {
+    restT = Math.min(300, restT + 15);
+    document.getElementById("pt-val").textContent = fmtT(restT);
+  });
+
+  document.getElementById("p-cancel").addEventListener("click", closeSheet);
+  document.getElementById("p-save").addEventListener("click", ()=>{
+    const name = document.getElementById("p-name").value.trim();
+    if(!name){ toast("Zadej název plánu"); return; }
+    const hasAny = DAYS_ORDER.some(d => schedule[d].some(en => exById(en.exId)));
+    if(!hasAny){ toast("Přidej cviky aspoň do jednoho dne"); return; }
+    const clean = {};
+    for(const d of DAYS_ORDER){
+      const valid = schedule[d].filter(en => exById(en.exId));
+      if(valid.length) clean[d] = valid;
+    }
+    if(plan){
+      plan.name = name; plan.schedule = clean; plan.restTimer = restT;
+      toast("Plán upraven");
+    }else{
+      state.plans.push({ id: uid(), name, schedule: clean, restTimer: restT });
+      toast("Plán vytvořen");
+    }
+    save(); closeSheet(); render();
+  });
+}
+
+/* ================= toast & nav ================= */
+let toastTimer;
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove("show"), 1800);
+}
+
+document.querySelectorAll(".tab").forEach(t =>
+  t.addEventListener("click", ()=>{ activeTab = t.dataset.tab; exSearch = ""; render(); }));
+
+document.addEventListener("visibilitychange", ()=>{
+  if(!document.hidden){ if(restInt) keepAwake(true); render(); }
+});
+
+/* ================= instalace na plochu (PWA) ================= */
+let installPrompt = null;
+
+if("serviceWorker" in navigator && location.protocol.startsWith("http")){
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(() => {});
+  });
+}
+
+window.addEventListener("beforeinstallprompt", e => {
+  e.preventDefault();
+  installPrompt = e;
+  if(activeTab === "overview") render();
+  else toast("📲 Aplikaci lze přidat na plochu — viz Přehled");
+});
+
+window.addEventListener("appinstalled", () => {
+  installPrompt = null;
+  toast("Hotovo! Appku máš na ploše 🎉");
+  if(activeTab === "overview") render();
+});
+
+async function doInstall(){
+  if(!installPrompt) return;
+  installPrompt.prompt();
+  try{ await installPrompt.userChoice; }catch(e){}
+  installPrompt = null;
+  render();
+}
+function isStandalone(){
+  return window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+}
+
+render();
+</script>
+</body>
+</html>
