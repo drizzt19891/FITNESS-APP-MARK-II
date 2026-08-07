@@ -562,7 +562,7 @@ const FIREBASE_CONFIG = {
 /* ========================================================================== */
 
 /* ================= constants ================= */
-const APP_VERSION = "1.5";
+const APP_VERSION = "1.6";
 const KEY = "trenink-app-v1";
 const DAYS = ["Ne","Po","Út","St","Čt","Pá","So"];
 const DAYS_ORDER = [1,2,3,4,5,6,0];
@@ -1619,8 +1619,16 @@ function renderOverview(){
         ${installPrompt
           ? `<button class="btn primary" id="do-install" style="width:100%;margin-bottom:14px">📲 Nainstalovat na plochu</button>`
           : ""}
-        <p class="hint" style="margin:0 0 10px">${manual}</p>
-        <p class="hint" style="margin:0">Pokud tam položka není, appku už nejspíš nainstalovanou máš — mrkni na plochu telefonu. Chrome ji podruhé nenabízí.</p>`;
+        <p class="hint" style="margin:0 0 12px">${manual}</p>
+        <p class="hint" style="margin:0 0 12px">Když položka v menu chybí a appku na ploše nemáš, Chrome ji nejspíš potlačuje po dřívějším odinstalování. Zkus <b>obnovit stránku</b>; když to nepomůže, v Chromu <b>Nastavení → Soukromí → Nastavení webů → Všechny weby → drizzt19891.github.io → Vymazat data</b> a otevřít adresu znovu. <b>Před tím si dej Exportovat</b> v sekci Záloha dat.</p>
+        <button class="w-undo" id="inst-diag">🔍 Zjistit stav instalace</button>
+        ${instDiag ? `
+          <div class="errbox" style="background:var(--elevated);border-color:var(--line);color:var(--muted);margin-top:12px">
+            HTTPS: ${instDiag.https}<br>
+            Manifest: ${esc(instDiag.manifest)}<br>
+            Service worker: ${esc(instDiag.sw)}<br>
+            Nabídka instalace: ${esc(instDiag.prompt)}
+          </div>` : ""}`;
     }
     if(k === "cloud"){
       if(!fbReady()){
@@ -1840,6 +1848,8 @@ function renderOverview(){
 
   const inst = document.getElementById("do-install");
   if(inst) inst.addEventListener("click", doInstall);
+  const idg = document.getElementById("inst-diag");
+  if(idg) idg.addEventListener("click", () => { idg.textContent = "Zjišťuji…"; runInstallDiag(); });
 
   const exp = document.getElementById("do-export");
   if(exp){
@@ -2435,6 +2445,7 @@ function applyRemote(remote){
 
 /* ================= instalace na plochu (PWA) ================= */
 let installPrompt = null;
+var instDiag = null;
 
 if("serviceWorker" in navigator && location.protocol.startsWith("http")){
   window.addEventListener("load", () => {
@@ -2459,6 +2470,25 @@ async function doInstall(){
   installPrompt.prompt();
   try{ await installPrompt.userChoice; }catch(e){}
   installPrompt = null;
+  render();
+}
+async function runInstallDiag(){
+  const d = {};
+  d.https = (typeof isSecureContext !== "undefined" ? isSecureContext : location.protocol === "https:")
+    ? "ano ✓" : "NE — instalace vyžaduje https";
+  try{
+    const r = await fetch("./manifest.json", { cache: "no-store" });
+    const j = r.ok ? await r.json() : null;
+    d.manifest = r.ok ? `načten ✓ (id: ${j.id || "—"})` : "chyba " + r.status;
+  }catch(e){ d.manifest = "nedostupný ✗"; }
+  try{
+    const regs = await navigator.serviceWorker.getRegistrations();
+    d.sw = !regs.length ? "neregistrován ✗"
+      : navigator.serviceWorker.controller ? "aktivní a řídí stránku ✓"
+      : "registrován, ale zatím neřídí — obnov stránku";
+  }catch(e){ d.sw = "nepodporován ✗"; }
+  d.prompt = installPrompt ? "k dispozici ✓" : "Chrome ji zatím nenabídl";
+  instDiag = d;
   render();
 }
 function isStandalone(){
