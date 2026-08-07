@@ -1,5 +1,5 @@
 /* Trénink – service worker: appka funguje i bez internetu */
-const CACHE = "trenink-v2";
+const CACHE = "trenink-v3";
 const ASSETS = [
   "./", "./index.html", "./manifest.json",
   "./icon-192.png", "./icon-512.png", "./icon-maskable.png"
