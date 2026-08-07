@@ -562,7 +562,7 @@ const FIREBASE_CONFIG = {
 /* ========================================================================== */
 
 /* ================= constants ================= */
-const APP_VERSION = "1.6";
+const APP_VERSION = "1.7";
 const KEY = "trenink-app-v1";
 const DAYS = ["Ne","Po","Út","St","Čt","Pá","So"];
 const DAYS_ORDER = [1,2,3,4,5,6,0];
@@ -1643,7 +1643,10 @@ function renderOverview(){
             </div>
             <button class="btn ghost" id="sy-out" style="flex:0 0 116px;padding:12px 0;font-size:14.5px">Odhlásit</button>
           </div>
-          <p class="hint">Data se drží stejná na všech zařízeních, kde jsi přihlášený. Bez signálu appka funguje dál a odešle změny, jakmile chytne síť.</p>`;
+          <p class="hint">Data se drží stejná na všech zařízeních, kde jsi přihlášený. Bez signálu appka funguje dál a odešle změny, jakmile chytne síť.</p>
+          ${hasSnapshot() ? (() => { const s = snapshotInfo(); return `
+            <button class="w-undo" id="sy-restore" style="margin-top:6px">↩︎ Obnovit stav před synchronizací${s ? ` (${s.plans} ${plural(s.plans,"plán","plány","plánů")}, ${s.when})` : ""}</button>
+            <p class="hint">Appka si uložila, jak to vypadalo těsně před prvním sloučením. Obnovení nic nemaže — jen ta data vrátí zpět a nechá jim přednost.</p>`; })() : ""}`;
       }
       return `
         <div class="sub2" style="margin:-4px 0 12px">Stav: ${
@@ -1780,6 +1783,10 @@ function renderOverview(){
     });
   }
 
+  const syRes = document.getElementById("sy-restore");
+  if(syRes) syRes.addEventListener("click", () => {
+    if(confirm("Vrátit data do stavu těsně před synchronizací? Nic se nesmaže, jen se obnoví, co tu bylo předtím.")) restoreSnapshot();
+  });
   const syOut = document.getElementById("sy-out");
   if(syOut) syOut.addEventListener("click", async () => {
     try{ await window.__fb.logout(); toast("Odhlášeno"); }catch(e){ toast("Odhlášení selhalo"); }
@@ -2429,17 +2436,59 @@ function mergeState(local, remote){
   return out;
 }
 
+const SNAP_KEY = KEY + "__presync";
+var snapTaken = false;
+
+/* stav těsně před prvním sloučením si schováme, aby šel vrátit */
+function takeSnapshot(){
+  if(snapTaken) return;
+  snapTaken = true;
+  try{
+    const hasData = (state.plans || []).length || Object.keys(state.sessions || {}).length;
+    if(hasData) localStorage.setItem(SNAP_KEY, JSON.stringify({ at: Date.now(), data: state }));
+  }catch(e){}
+}
+function hasSnapshot(){
+  try{ return !!localStorage.getItem(SNAP_KEY); }catch(e){ return false; }
+}
+function snapshotInfo(){
+  try{
+    const s = JSON.parse(localStorage.getItem(SNAP_KEY));
+    const d = new Date(s.at);
+    return { plans: (s.data.plans || []).length, when: d.getDate()+"."+(d.getMonth()+1)+". "+
+             String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0") };
+  }catch(e){ return null; }
+}
+/* vrácení = sloučení zálohy s aktuálním stavem, nic se nemaže */
+function restoreSnapshot(){
+  try{
+    const s = JSON.parse(localStorage.getItem(SNAP_KEY));
+    if(!s || !s.data) { toast("Záloha není k dispozici"); return; }
+    const old = s.data;
+    old.updatedAt = Date.now();          // ať má přednost
+    state = mergeState(old, state);
+    state.updatedAt = Date.now();
+    save(); render();
+    toast("Stav před synchronizací obnoven");
+  }catch(e){ toast("Obnovení selhalo"); }
+}
+
 /* volá se z modulu níže, když dorazí data z cloudu */
 function applyRemote(remote){
   if(!remote) return;
+  takeSnapshot();
   const merged = mergeState(state, remote);
+  /* Sloučený výsledek může obsahovat věci, které v cloudu nejsou
+     (např. plán vytvořený offline) — pak ho vždy pošli zpátky. */
+  const differs = JSON.stringify(merged.plans) !== JSON.stringify(remote.plans || [])
+               || JSON.stringify(merged.exercises) !== JSON.stringify(remote.exercises || [])
+               || JSON.stringify(merged.sessions) !== JSON.stringify(remote.sessions || {});
   syncApplying = true;
   state = merged;
   save();
   syncApplying = false;
   render();
-  /* pokud jsme po sloučení napřed, pošli výsledek zpátky */
-  if((state.updatedAt || 0) > (remote.updatedAt || 0)) schedulePush();
+  if(differs || (state.updatedAt || 0) > (remote.updatedAt || 0)) schedulePush();
   else setSyncStatus("ok");
 }
 
