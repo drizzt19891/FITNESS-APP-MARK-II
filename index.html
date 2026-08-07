@@ -562,7 +562,7 @@ const FIREBASE_CONFIG = {
 /* ========================================================================== */
 
 /* ================= constants ================= */
-const APP_VERSION = "1.4";
+const APP_VERSION = "1.5";
 const KEY = "trenink-app-v1";
 const DAYS = ["Ne","Po","Út","St","Čt","Pá","So"];
 const DAYS_ORDER = [1,2,3,4,5,6,0];
@@ -852,6 +852,12 @@ function openWaterSheet(){
   render2();
   requestAnimationFrame(() => $sheet.classList.add("show"));
 }
+function bindInstallBar(){
+  const a = document.getElementById("td-inst");
+  if(a) a.addEventListener("click", doInstall);
+  const b = document.getElementById("td-hide");
+  if(b) b.addEventListener("click", () => { state.installHidden = true; save(); render(); });
+}
 function bindWater(){
   const b = document.getElementById("waterBtn");
   if(b) b.addEventListener("click", openWaterSheet);
@@ -906,6 +912,16 @@ function renderToday(){
     </div>
   `;
 
+  const installBar = (installPrompt && !isStandalone() && !state.installHidden)
+    ? `<div class="nudge" style="margin-bottom:12px">
+         <span>📲 Přidej si appku na plochu telefonu.</span>
+         <span style="display:flex;gap:10px;flex:none">
+           <button id="td-inst">Instalovat</button>
+           <button id="td-hide" style="color:var(--muted);text-decoration:none">✕</button>
+         </span>
+       </div>`
+    : "";
+
   /* --- žádný trénink na dnešek --- */
   if(!plan){
     if(state.plans.length === 0){
@@ -940,9 +956,10 @@ function renderToday(){
           : "Nastav si aktivní plán v záložce <b>Plány</b>, nebo si vyber dnešní trénink ručně."}</p>
       </div>
       <div class="plan-label">Vybrat trénink na dnešek</div>
-      ${picker}`;
+      ${picker}` + installBar;
 
     bindWater();
+    bindInstallBar();
     $main.querySelectorAll("[data-pick]").forEach(b =>
       b.addEventListener("click", () => {
         state.daily.manualPlanId = b.dataset.pick;
@@ -954,7 +971,7 @@ function renderToday(){
   }
 
   /* --- trénink --- */
-  let html = "";
+  let html = installBar;
   if(total > 0 && done === total){
     html += `
       <div class="finish-banner">
@@ -1003,6 +1020,7 @@ function renderToday(){
 
   $main.innerHTML = html;
   bindWater();
+  bindInstallBar();
 
   const clr = document.getElementById("clearManual");
   if(clr) clr.addEventListener("click", () => {
@@ -1575,15 +1593,34 @@ function renderOverview(){
             <button id="wg-inc">＋</button>
           </div>
         </div>
-        <div class="set-row" style="margin-top:16px">
-          <div>
-            <div class="lbl2">📲 Aplikace na ploše</div>
-            <div class="sub2">${isStandalone()
-              ? "Běží jako nainstalovaná aplikace ✓"
-              : (installPrompt ? "Přidej si ji mezi ostatní appky" : "Otevři přes webovou adresu (https)")}</div>
-          </div>
-          ${installPrompt ? `<button class="btn primary" id="do-install" style="flex:0 0 116px;padding:12px 0;font-size:14.5px">Instalovat</button>` : ""}
-        </div>`;
+`;
+    }
+    if(k === "install"){
+      if(isStandalone())
+        return `<p class="hint" style="margin:0">✅ Appka běží jako nainstalovaná aplikace — přesně jak má.</p>`;
+
+      if(location.protocol === "file:")
+        return `<div class="errbox">Otevřel jsi soubor z paměti telefonu. Instalovat lze jen z webové adresy — otevři <b>https://drizzt19891.github.io/FITNESS-APP-MARK-II/</b></div>`;
+
+      const ua = navigator.userAgent || "";
+      const iOS = /iPhone|iPad|iPod/.test(ua);
+      const samsung = /SamsungBrowser/.test(ua);
+      const firefox = /Firefox/.test(ua);
+
+      const manual = iOS
+        ? `<b>V Safari:</b> klepni na ikonu <b>Sdílet</b> (čtvereček se šipkou dole uprostřed) → sjeď dolů → <b>Přidat na plochu</b>.`
+        : samsung
+        ? `<b>V Samsung Internetu:</b> menu <b>☰</b> dole → <b>Přidat stránku na</b> → <b>Domovská obrazovka</b>.`
+        : firefox
+        ? `<b>Ve Firefoxu:</b> menu <b>⋮</b> → <b>Přidat na domovskou obrazovku</b>. Doporučuju ale Chrome, tam appka funguje líp.`
+        : `<b>V Chromu:</b> klepni na <b>⋮</b> vpravo nahoře → vyber <b>Instalovat aplikaci</b> (nebo <b>Přidat na plochu</b>).`;
+
+      return `
+        ${installPrompt
+          ? `<button class="btn primary" id="do-install" style="width:100%;margin-bottom:14px">📲 Nainstalovat na plochu</button>`
+          : ""}
+        <p class="hint" style="margin:0 0 10px">${manual}</p>
+        <p class="hint" style="margin:0">Pokud tam položka není, appku už nejspíš nainstalovanou máš — mrkni na plochu telefonu. Chrome ji podruhé nenabízí.</p>`;
     }
     if(k === "cloud"){
       if(!fbReady()){
@@ -1645,6 +1682,7 @@ function renderOverview(){
     ["water", "💧 Hydratace",     fmtL(waterToday) + " l dnes"],
     ["week",  "📅 Tréninkové týdny", totalDays + " celkem"],
     ["cal",   "🗓️ Deník tréninků", sessCount ? sessCount + " " + plural(sessCount,"záznam","záznamy","záznamů") : "—"],
+    ["install","📲 Instalace na plochu", isStandalone() ? "Nainstalováno ✓" : (installPrompt ? "K dispozici" : "Ručně")],
     ["cloud", "☁️ Synchronizace",  fbReady() ? (syncUser ? syncLabel() : "Nepřihlášen") : "Nenastaveno"],
     ["set",   "⚙️ Nastavení",     ""],
     ["backup","💾 Záloha dat",    ""]
@@ -2407,8 +2445,7 @@ if("serviceWorker" in navigator && location.protocol.startsWith("http")){
 window.addEventListener("beforeinstallprompt", e => {
   e.preventDefault();
   installPrompt = e;
-  if(activeTab === "overview") render();
-  else toast("📲 Aplikaci lze přidat na plochu — viz Přehled");
+  render();
 });
 
 window.addEventListener("appinstalled", () => {
